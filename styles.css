@@ -398,6 +398,8 @@ body.menu-open {
 
 #hero-container {
    position: fixed;
+
+
   /* Fija el header en la parte superior de la ventana */
   top: 76px;
   /* Separación desde el borde superior */
@@ -405,7 +407,7 @@ body.menu-open {
   /* Separación desde el borde izquierdo */
   right: 13rem;
   /* Separación desde el borde derecho */
-  height: 304px;
+  height: 350px;
   /* Altura fija del header */
 
   border-radius: 0 0 14px 14px;
@@ -454,7 +456,15 @@ font-size: medium;
  margin-top: -15px;
   
 }
-
+#form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ width: 100%;
+  position: fixed;
+  top:250px;
+}
 /* =====================================================
    FOOTER
    ===================================================== */
