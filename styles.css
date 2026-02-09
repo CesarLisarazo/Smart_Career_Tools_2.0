@@ -444,7 +444,7 @@ body.menu-open {
 #hero-subtittle{
   position: fixed;
   color: #181f33;
-  font-size: small;
+font-size: medium;
   font-weight: 350;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
    transform: scaleY(0.95);
