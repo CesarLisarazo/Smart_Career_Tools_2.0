@@ -309,7 +309,7 @@ body.menu-open {
   right: 12px;
   /* Margen derecho */
 
-  background: linear-gradient(to top right, #dfdfe9, #cacbdd);
+  background: linear-gradient(to top right, #dfdfe9, #e5e8f6);
   /* Fondo degradado */
   padding: 8px 0;
   /* Padding vertical */
@@ -455,6 +455,11 @@ font-size: 16px;
  margin-top: -15px;
   
 }
+
+
+/* =====================================================
+   FORM CONTENT
+   ===================================================== */
 #form-container {
   position: relative;
   display: flex;
@@ -476,6 +481,10 @@ font-size: 16px;
   z-index: 2000;
 
 }
+
+
+
+
 /* =====================================================
    FOOTER
    ===================================================== */
