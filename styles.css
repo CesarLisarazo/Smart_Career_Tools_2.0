@@ -88,7 +88,7 @@ body.menu-open {
 
   border-radius: 14px 14px 0 0;
   /* Bordes redondeados */
-  background: linear-gradient(to top right, #f9f9fd, #cacbdd);
+  background: linear-gradient(to top right, #f9f9fd, #e2e6f9);
   /* Fondo con degradado */
   box-shadow: rgba(0, 0, 0, 0.08) 0 4px 8px;
   /* Sombra suave */
@@ -423,7 +423,7 @@ body.menu-open {
   /* Centra la imagen de fondo */
   background-repeat: no-repeat;
   /* Evita que la imagen se repita */
-  text-align: center;
+  text-align: center; 
 }
 
 
