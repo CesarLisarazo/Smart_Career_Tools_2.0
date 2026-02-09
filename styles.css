@@ -445,11 +445,10 @@ body.menu-open {
 
 #hero-subtittle{
   position: fixed;
-  color: #1f283f;
-font-size: medium;
-  font-weight: 350;
+  color: #252e4b;
+font-size: 16px;
+ font-weight: 500;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-   transform: scaleY(0.95);
   left: 3rem;
   /* Separación desde el borde izquierdo */
   right: 3rem;
@@ -469,7 +468,7 @@ font-size: medium;
 
 
 #form_subtittle{
-  color: #0f192eda;
+  color: #0f192e;
   position: absolute;
   top: 128px;
   font-size: 10px;
