@@ -1,0 +1,705 @@
+/* =====================================================
+   RESET + BASE
+   ===================================================== */
+
+html {
+  overflow-y: scroll;
+  /* Fuerza la barra de desplazamiento vertical para evitar saltos de diseño */
+}
+
+html,
+body {
+  height: 100%;
+  /* Asegura que el html y body ocupen toda la altura de la ventana */
+  margin: 0;
+  /* Elimina los márgenes por defecto del navegador */
+}
+
+* {
+  box-sizing: border-box;
+  /* Incluye padding y borde en el cálculo del ancho y alto de los elementos */
+  -webkit-tap-highlight-color: transparent;
+  /* Elimina el color de resaltado al tocar en dispositivos móviles (iOS/Android) */
+}
+
+:root {
+  --text: #0f172a;
+  /* Define una variable CSS para el color de texto principal */
+  --border: #e5e7eb;
+  /* Define una variable CSS para el color de bordes */
+  --max-width: 1100px;
+  /* Define una variable CSS para el ancho máximo del contenido */
+}
+
+/* =====================================================
+   BODY
+   ===================================================== */
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  /* Establece la tipografía principal */
+  background-color: #1f2632;
+  /* Color de fondo de respaldo si la imagen no carga */
+  padding-bottom: 60px;
+  /* Espacio inferior para evitar que el footer fijo tape contenido */
+}
+
+body::before {
+  content: "";
+  /* Necesario para que el pseudo-elemento se renderice */
+  position: fixed;
+  /* Fija el fondo para que no se mueva al hacer scroll */
+  inset: 0;
+  /* top, right, bottom, left = 0. Ocupa toda la pantalla */
+
+  background-image: url("./img/background.jpg");
+  /* Imagen de fondo */
+  background-size: cover;
+  /* Escala la imagen para cubrir todo el contenedor */
+  background-position: center;
+  /* Centra la imagen de fondo */
+  background-repeat: no-repeat;
+  /* Evita que la imagen se repita */
+
+  z-index: -1;
+  /* Coloca este elemento detrás de todo el contenido */
+}
+
+body.menu-open {
+  overflow: hidden;
+  /* Evita el scroll en el body cuando el menú móvil está abierto */
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+#header {
+  position: fixed;
+  /* Fija el header en la parte superior de la ventana */
+  top: 15px;
+  /* Separación desde el borde superior */
+  left: 13rem;
+  /* Separación desde el borde izquierdo */
+  right: 13rem;
+  /* Separación desde el borde derecho */
+  height: 64px;
+  /* Altura fija del header */
+
+  border-radius: 14px 14px 0 0;
+  /* Bordes redondeados */
+  background: linear-gradient(to top right, #f9f9fd, #cacbdd);
+  /* Fondo con degradado */
+  box-shadow: rgba(0, 0, 0, 0.08) 0 4px 8px;
+  /* Sombra suave */
+  z-index: 30;
+  /* Asegura que el header esté por encima de otros elementos */
+}
+
+#nav-container {
+  max-width: var(--max-width);
+  /* Limita el ancho usando la variable definida */
+  height: 100%;
+  /* Ocupa toda la altura del header */
+  margin: 0 auto;
+  /* Centra el contenedor horizontalmente */
+  padding: 0 24px;
+  /* Espaciado interno lateral */
+
+  display: flex;
+  /* Activa Flexbox para alinear elementos */
+  align-items: center;
+  /* Centra verticalmente los elementos hijos */
+  justify-content: space-between;
+  /* Distribuye espacio entre el logo y la navegación */
+}
+
+#main-logo {
+  display: flex;
+  /* Flexbox para alinear imagen y texto del logo */
+  align-items: center;
+  /* Centra verticalmente */
+  gap: 10px;
+  /* Espacio entre la imagen y el texto */
+}
+
+#main-logo a {
+  text-decoration: none;
+  /* Quita el subrayado del enlace */
+  color: black;
+  /* Color del texto del logo */
+}
+
+#logo {
+  height: 65%;
+  /* Altura de la imagen relativa al contenedor padre */
+}
+
+#title {
+  font-size: 16px;
+  /* Tamaño de fuente del título */
+  font-weight: 500;
+  /* Grosor de fuente normal */
+}
+
+#nav a {
+  margin-right: 24px;
+  /* Espacio a la derecha de cada enlace */
+  text-decoration: none;
+  /* Quita el subrayado */
+  color: var(--text);
+  /* Usa el color de texto definido en variables */
+  font-weight: 500;
+  /* Grosor de fuente medio */
+}
+
+/* =====================================================
+   HAMBURGER
+   ===================================================== */
+
+#hamburger-button {
+  display: none;
+  /* Oculto por defecto, se muestra solo en móviles */
+  width: 22px;
+  /* Ancho del botón */
+  height: 19px;
+  /* Alto del botón */
+  position: relative;
+  /* Posicionamiento relativo para los iconos absolutos dentro */
+  background: none;
+  /* Sin fondo */
+  border: none;
+  /* Sin borde */
+  cursor: pointer;
+  /* Cursor de puntero al pasar sobre el botón */
+  overflow: hidden;
+  /* Oculta los elementos que se desplazan fuera del botón */
+}
+
+/* ================= ICON CONTAINERS ================= */
+
+#hamburger-button .icon {
+  position: absolute;
+  /* Posicionamiento absoluto dentro del botón */
+  inset: 0;
+  /* Ocupa todo el espacio del botón (top, right, bottom, left = 0) */
+
+  display: flex;
+  /* Activa Flexbox */
+  flex-direction: column;
+  /* Dirección vertical para las barras */
+  justify-content: space-between;
+  /* Distribuye espacio entre las barras */
+  align-items: center;
+  /* Centra las barras horizontalmente */
+}
+
+/* ================= BARS BASE ================= */
+
+#hamburger-button .bar {
+  width: 100%;
+  /* Ancho completo del contenedor */
+  height: 3px;
+  /* Altura de cada barra */
+  background: var(--text);
+  /* Color de las barras usando la variable de texto */
+  border-radius: 3px;
+  /* Bordes redondeados en las barras */
+}
+
+/* =====================================================
+   HAMBURGER ICON
+   ===================================================== */
+
+/* Visible por defecto */
+
+#hamburger-button .hamburger {
+  opacity: 1;
+  /* Totalmente visible */
+  transform: scaleY(1);
+  /* Escala horizontal normal */
+  transform-origin: bottom;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Animación combinada de opacidad y estiramiento */
+}
+
+/* Cuando abre → se desvanece y se estira horizontalmente */
+
+#hamburger-button.open .hamburger {
+  opacity: 0;
+  /* Invisible cuando el menú está abierto */
+  transform: scaleY(0);
+  transform-origin: top;
+  /* Se comprime horizontalmente hasta desaparecer */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Animación combinada de opacidad y estiramiento */
+}
+
+
+/* =====================================================
+   CLOSE (X) ICON
+   ===================================================== */
+
+/* Oculta por defecto */
+
+#hamburger-button .close {
+  opacity: 0;
+  /* Invisible por defecto */
+  transform: scaleY(0);
+  /* Comprimido horizontalmente (sin ancho) */
+  transform-origin: top;
+
+
+  justify-content: center;
+  /* Centra las barras verticalmente */
+  align-items: center;
+  /* Centra las barras horizontalmente */
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Animación combinada de opacidad y estiramiento */
+}
+
+/* Barras cruz */
+
+#hamburger-button .close .bar {
+  position: absolute;
+  /* Posicionamiento absoluto para superponer las barras */
+}
+
+#hamburger-button .close .bar:nth-child(1) {
+  transform: rotate(45deg);
+  /* Rota la primera barra 45 grados */
+}
+
+#hamburger-button .close .bar:nth-child(2) {
+  transform: rotate(-45deg);
+  /* Rota la segunda barra -45 grados para formar la X */
+}
+
+/* =====================================================
+   STATE — MENU OPEN
+   ===================================================== */
+
+/* X aparece y se estira horizontalmente */
+
+#hamburger-button.open .close {
+  opacity: 1;
+  /* Visible cuando el menú está abierto */
+  transform: scaleY(1);
+  /* Escala horizontal normal */
+  transform-origin: top;
+  /* Se estira hasta su ancho normal */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Animación combinada de opacidad y estiramiento */
+}
+
+
+/* =====================================================
+   MOBILE MENU
+   ===================================================== */
+
+#mobile-menu {
+  position: absolute;
+  /* Posicionamiento absoluto respecto al header */
+  top: calc(100% + 8px);
+  /* Se ubica justo debajo del header + 8px de espacio */
+  left: 12px;
+  /* Margen izquierdo */
+  right: 12px;
+  /* Margen derecho */
+
+  background: linear-gradient(to top right, #dfdfe9, #cacbdd);
+  /* Fondo degradado */
+  padding: 8px 0;
+  /* Padding vertical */
+  border-radius: 18px;
+  /* Bordes muy redondeados */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  /* Sombra pronunciada */
+  z-index: 60;
+  /* Capa superior (encima del overlay) */
+
+  display: flex;
+  /* Flexbox para lista vertical */
+  flex-direction: column;
+  /* Dirección vertical */
+
+  opacity: 0;
+  /* Invisible inicialmente */
+  transform: translateY(-10px);
+  /* Desplazado ligeramente hacia arriba */
+  pointer-events: none;
+  /* No interactuable cuando está oculto */
+
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  /* Animación suave de aparición */
+}
+
+#mobile-menu.open {
+  opacity: 1;
+  /* Totalmente visible */
+  transform: translateY(0);
+  transform-origin: bottom;
+  /* Posición original */
+  pointer-events: auto;
+  /* Interactuable */
+}
+
+.mobile-link {
+  margin: 10px 12px 0;
+  /* Margen superior y lateral */
+  padding: 16px 20px;
+  /* Espaciado interno generoso para tocar fácilmente */
+  text-decoration: none;
+  /* Sin subrayado */
+  color: var(--text);
+  /* Color de texto */
+  font-weight: 500;
+  /* Grosor medio */
+  border-radius: 12px;
+  /* Bordes redondeados en los enlaces */
+  background: #f8fafc62;
+  /* Fondo semitransparente */
+}
+
+/* =====================================================
+   OVERLAY
+   ===================================================== */
+
+#menu-overlay {
+  position: fixed;
+  /* Cubre toda la ventana */
+  inset: 0;
+  /* top, right, bottom, left = 0 */
+  background: rgba(0, 0, 0, 0.35);
+  /* Fondo negro semitransparente */
+  opacity: 0;
+  /* Invisible por defecto */
+  pointer-events: none;
+  /* Clicks pasan a través */
+  z-index: 40;
+  /* Debajo del menú móvil pero encima del resto */
+  transition: opacity 0.25s ease;
+  /* Transición de opacidad */
+}
+
+#menu-overlay.open {
+  opacity: 1;
+  /* Visible */
+  pointer-events: auto;
+  /* Bloquea clicks en el contenido de abajo */
+}
+
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+#hero-container {
+   position: fixed;
+  /* Fija el header en la parte superior de la ventana */
+  top: 76px;
+  /* Separación desde el borde superior */
+  left: 13rem;
+  /* Separación desde el borde izquierdo */
+  right: 13rem;
+  /* Separación desde el borde derecho */
+  height: 304px;
+  /* Altura fija del header */
+
+  border-radius: 0 0 14px 14px;
+  /* Bordes redondeados */
+  background: linear-gradient(to top right, #f9f9fd, #cacbdd);
+  /* Fondo con degradado */
+  box-shadow: rgba(0, 0, 0, 0.08) 0 4px 8px;
+
+
+  background-image: url("./img/background_hero.jpg");
+  /* Imagen de fondo */
+  background-size: cover;
+  /* Escala la imagen para cubrir todo el contenedor */
+  background-position: center;
+  /* Centra la imagen de fondo */
+  background-repeat: no-repeat;
+  /* Evita que la imagen se repita */
+  text-align: center;
+}
+
+
+/* =====================================================
+   HERO CONTENT
+   ===================================================== */
+
+
+#hero-tittle {
+  color: #1f283f;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bolder;
+ text-shadow: 0.5px 0.5px 0.5px  #1f283f1c;
+ font-size: 30px;
+   transform: scaleY(0.95);
+}
+
+#hero-subtittle{
+  position: fixed;
+  color: #1f283f;
+  font-size: small;
+  font-weight: lighter;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   transform: scaleY(0.95);
+  left: 3rem;
+  /* Separación desde el borde izquierdo */
+  right: 3rem;
+ margin-top: -15px;
+  
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.sticky-footer {
+  position: fixed;
+  /* Fijo en la pantalla */
+  bottom: 6px;
+  /* Pegado al borde inferior */
+  left: 13rem;
+  /* Separación desde el borde izquierdo */
+  right: 13rem;
+  /* Separación desde el borde derecho */
+
+  height: 44px;
+  /* Altura fija */
+  border-radius: 14px;
+  /* Bordes redondeados */
+  background: rgba(10, 20, 40, 0.85);
+  /* Fondo oscuro semitransparente */
+  backdrop-filter: blur(10px);
+  /* Efecto de desenfoque en el fondo (glassmorphism) */
+  -webkit-backdrop-filter: blur(10px);
+  /* Soporte para Safari */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  /* Borde superior sutil */
+  z-index: 1000;
+  /* Capa muy alta para estar siempre visible */
+  background-clip: padding-box;
+  /* El fondo no se extiende más allá del padding */
+}
+
+.footer-content {
+  max-width: 1200px;
+  /* Ancho máximo del contenido del footer */
+  height: 100%;
+  /* Ocupa toda la altura del footer */
+  margin: 0 auto;
+  /* Centra horizontalmente */
+  padding: 0 16px;
+  /* Espaciado interno lateral */
+
+  display: flex;
+  /* Activa Flexbox */
+  align-items: center;
+  /* Centra verticalmente */
+  justify-content: space-between;
+  /* Distribuye espacio entre elementos */
+
+  color: rgba(255, 255, 255, 0.75);
+  /* Color de texto blanco semitransparente */
+  font-size: 12px;
+  /* Tamaño de fuente pequeño */
+}
+
+.footer-links a {
+  text-decoration: none;
+  /* Sin subrayado */
+  color: rgba(255, 255, 255, 0.75);
+  /* Mismo color que el texto */
+}
+
+#copyright {
+  color: rgba(255, 255, 255, 0.75);
+  /* Color de texto blanco semitransparente */
+  display: none;
+  /* Oculto por defecto, se muestra solo en móviles */
+}
+
+#copyright-container {
+  color: rgba(255, 255, 255, 0.75);
+  /* Color de texto blanco semitransparente */
+  display: flex;
+  /* Activa Flexbox */
+}
+
+#copyright-desktop {
+  justify-self: center;
+  /* Se centra en su celda de grid */
+  white-space: nowrap;
+  /* Evita que el texto se divida en varias líneas */
+  transform: translateX(40px);
+  /* Desplaza el texto 40px a la derecha */
+  color: rgba(255, 255, 255, 0.75);
+  /* Color de texto blanco semitransparente */
+}
+
+.footer-links {
+  min-width: 120px;
+  /* Ancho mínimo del contenedor de enlaces */
+  text-align: right;
+  /* Alinea el texto a la derecha */
+}
+
+body.menu-open .sticky-footer {
+  pointer-events: none;
+  /* Desactiva la interacción con el footer cuando el menú está abierto */
+}
+
+/* =====================================================
+CONTACT TOGGLE
+===================================================== */
+
+#contact-toggle {
+  cursor: pointer;
+  /* Cursor de puntero al pasar sobre el elemento */
+
+  text-align: right;
+  /* Alinea el texto a la derecha */
+}
+
+#contact-toggle-container {
+  width: 190px;
+  /* Ancho fijo del contenedor (suficiente para el email) */
+  position: relative;
+  /* Posicionamiento relativo para anclar el tooltip */
+}
+
+.contact-text {
+  display: inline-block;
+  /* Comportamiento de bloque en línea para transformaciones */
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  /* Animación de cambio */
+}
+
+.contact-text.is-fading {
+  opacity: 0;
+  /* Invisible */
+  transform: translateX(-20px);
+  /* Desplazado a la izquierda */
+}
+
+#contact-toggle::after {
+  content: "Copiado";
+  /* Texto del tooltip */
+  position: absolute;
+  /* Posicionamiento absoluto respecto al toggle */
+  right: 0;
+  /* Alineado al borde derecho */
+  bottom: 100%;
+  /* Encima del elemento */
+
+  transform: translateX(7px) translateY(-20px);
+  /* Ajuste fino de posición */
+  font-size: 12px;
+  /* Texto pequeño */
+  padding: 4px 8px;
+  /* Espaciado interno */
+  border-radius: 6px;
+  /* Bordes redondeados */
+  background: rgba(10, 20, 40, 0.75);
+  /* Fondo oscuro */
+  color: rgba(255, 255, 255, 0.75);
+  /* Texto claro */
+
+  opacity: 0;
+  /* Oculto por defecto */
+  pointer-events: none;
+  /* No interactuable */
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  /* Animación */
+}
+
+#contact-toggle.show-hint::after {
+  opacity: 1;
+  /* Visible */
+  transform: translateX(7px) translateY(-20px);
+  /* Mantiene la posición (podría ajustarse más arriba si se desea) */
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 975px) {
+  /* Media query para pantallas de 975px o menos */
+
+  #nav {
+    display: none;
+    /* Oculta navegación de escritorio en móviles */
+  }
+
+  #hamburger-button {
+    display: block;
+    /* Muestra botón hamburguesa en móviles */
+  }
+
+  body {
+    background-attachment: scroll;
+    /* El fondo se mueve con el scroll en móviles (mejor rendimiento) */
+  }
+
+  #header {
+    left: 15px;
+    /* Separación desde el borde izquierdo reducida */
+    right: 15px;
+    /* Separación desde el borde derecho reducida */
+  }
+  #hero-container {
+      left: 15px;
+    /* Separación desde el borde izquierdo reducida */
+    right: 15px;
+    /* Separación desde el borde derecho reducida */
+  }
+
+  #copyright {
+    display: flex;
+    /* Muestra el símbolo de copyright en móviles */
+    margin-right: 4px;
+    /* Espacio a la derecha del símbolo */
+  }
+
+  #copyright-desktop {
+    display: none;
+    /* Oculta el texto de copyright completo en móviles */
+  }
+
+  .sticky-footer {
+    left: 10px;
+    /* Separación desde el borde izquierdo reducida */
+    right: 10px;
+    /* Separación desde el borde derecho reducida */
+  }
+}
+
+/* =====================================================
+   DESKTOP
+   ===================================================== */
+
+@media (min-width: 976px) {
+  /* Media query para pantallas de 976px o más */
+
+  .footer-content {
+    display: grid;
+    /* Activa CSS Grid */
+    grid-template-columns: auto 1fr auto;
+    /* Tres columnas: auto, flexible, auto */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+  }
+
+  #copyright-desktop {
+    justify-self: center;
+    /* Se centra en su celda de grid */
+    white-space: nowrap;
+    /* Evita que el texto se divida en varias líneas */
+  }
+}
