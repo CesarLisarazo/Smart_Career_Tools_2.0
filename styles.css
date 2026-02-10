@@ -567,17 +567,24 @@ body.menu-open {
 }
 #text-img-container {
 
-max-width: 90%;
+max-width: 95%;
 
 
  
 }
 
-#text-img-container img {
+#text-img{
  height: 80px;
    width: 100%;
   height: auto;
   display: block;
+}
+#text-img-responsive{
+  display: none;
+ height: 80px;
+   width: 100%;
+  height: auto;
+ 
 }
 
 /* =====================================================
@@ -812,6 +819,18 @@ body.menu-open .sticky-footer {
     right: 10px;
     /* Separación desde el borde derecho reducida para móviles */
   }
+
+#text-img{  
+  display: none;
+}
+#text-img-responsive{
+
+  display: block;
+ 
+}
+
+
+
 }
 
 /* =====================================================
