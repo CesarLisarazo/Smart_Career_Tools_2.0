@@ -557,7 +557,7 @@ body.menu-open #form_subtitle {
  
   /* Altura mínima igual a la altura de la ventana para forzar scroll */
 }
-#text-container p{
+#text-container-title{
   
   color: #f9f9fd;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -568,7 +568,9 @@ body.menu-open #form_subtitle {
 }
 
 #text-container-subtitle {
-   font-size: small;
+   font-size: 13px;
+   transform: scale(0.8);
+     color: #f9f9fd;
    margin-top: -5px;
    margin-bottom: 25px;
 }
@@ -611,10 +613,11 @@ max-width: 90%;
 
 #final-text{
    color: #f9f9fd;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: medium;
+    font-family:Georgia, Times, 'Times New Roman', serif;
+
+   justify-content: center;
     text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
-    font-size: 17px;
+    font-size: 14px;
     transform: scaleY(0.95);
 
 
@@ -626,7 +629,7 @@ max-width: 90%;
 .sticky-footer {
   position: fixed;
   /* Fijo en la pantalla */
-  bottom: 6px;
+  bottom: 0px;
   /* Pegado al borde inferior con pequeño margen */
   left: 13rem;
   /* Separación desde el borde izquierdo */
@@ -825,10 +828,7 @@ body.menu-open .sticky-footer {
  
 
 
-  #text-container p {
-    font-size: 16px;
-    /* Tamaño de fuente ligeramente reducido para móviles */
-  }
+ 
 
   #copyright {
     display: flex;
