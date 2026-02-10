@@ -434,7 +434,7 @@ body.menu-open {
    ===================================================== */
 
 
-#hero-tittle {
+#hero-title {
   color: #1f283f;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bolder;
@@ -443,7 +443,7 @@ body.menu-open {
    transform: scaleY(0.95);
 }
 
-#hero-subtittle{
+#hero-subtitle{
   position: fixed;
   color: #252e4b;
 font-size: 15px;
@@ -461,20 +461,19 @@ font-size: 15px;
    FORM CONTENT
    ===================================================== */
 #form-container {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
  width: 100%;
-  position: fixed;
   top:250px;
 }
 
 
-#form_subtittle{
+#form_subtitle{
   color: #0f192e;
-  position: absolute;
+position: absolute;
   top: 128px;
   font-size: 10px;
   display: flex;
@@ -482,9 +481,34 @@ font-size: 15px;
 
 }
 
-
-
-
+/* =====================================================
+   TEXT CONTENT
+   ===================================================== */
+#text-container {
+  width: 100%;
+  position: absolute;
+  top: 410px; /* Debe ser MAYOR que el top de form-container + su altura */
+text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+   color:  #f9f9fd;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: medium;
+ text-shadow: 0.5px 0.5px 0.5px  #1f283f1c;
+ font-size:17px;
+   transform: scaleY(0.95);
+}
+#text-container-subtitle{
+ color:  #f9f9fdc7;
+  transform: translateY(-20px);
+  font-weight: lighter;
+  font-size: 12px;
+ font-weight:50px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ } 
 /* =====================================================
    FOOTER
    ===================================================== */
