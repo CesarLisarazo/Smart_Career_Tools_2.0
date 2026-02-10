@@ -70,6 +70,13 @@ body.menu-open {
   /* Evita el scroll en el body cuando el menú móvil está abierto */
 }
 
+body.menu-open #form-container,
+body.menu-open .ml-embedded,
+body.menu-open #form_subtitle {
+  pointer-events: none;
+  opacity: 0;
+}
+
 /* =====================================================
    HEADER
    ===================================================== */
@@ -348,7 +355,7 @@ body.menu-open {
 }
 
 .mobile-link {
-  margin: 10px 12px 0;
+  margin: 10px 15px 15px 15px;
   /* Margen superior y lateral */
   padding: 16px 20px;
   /* Espaciado interno generoso para tocar fácilmente */
