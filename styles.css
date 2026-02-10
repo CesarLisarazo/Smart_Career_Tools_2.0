@@ -551,7 +551,7 @@ body.menu-open #form_subtitle {
   /* Centra horizontalmente los elementos hijos */
   justify-content: center;
   /* Centra verticalmente los elementos hijos */
-  
+
 
   /* Espaciado interno vertical y horizontal */
  
@@ -565,7 +565,6 @@ body.menu-open #form_subtitle {
     text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
     font-size: 17px;
     transform: scaleY(0.95);
-  
 }
 
 #text-container-subtitle {
@@ -606,7 +605,7 @@ align-items: center;
 max-width: 90%;
 
  margin: 0 auto;
- overflow-y: scroll;
+
 }
 
 
@@ -806,10 +805,7 @@ body.menu-open .sticky-footer {
     /* Muestra botón hamburguesa en móviles */
   }
 
-  body {
-    background-attachment: scroll;
-    /* El fondo se mueve con el scroll en móviles (mejor rendimiento) */
-  }
+  
 
   #header {
     left: 15px;
