@@ -87,9 +87,9 @@ body.menu-open {
   /* Altura fija del header */
 
   border-radius: 14px 14px 0 0;
-  /* Bordes redondeados */
+  /* Bordes redondeados superiores */
   background: linear-gradient(to top right, #f9f9fd, #e2e6f9);
-  /* Fondo con degradado */
+  /* Fondo con degradado diagonal */
   box-shadow: rgba(0, 0, 0, 0.08) 0 4px 8px;
   /* Sombra suave */
   z-index: 30;
@@ -139,7 +139,7 @@ body.menu-open {
   font-size: 16px;
   /* Tamaño de fuente del título */
   font-weight: 500;
-  /* Grosor de fuente normal */
+  /* Grosor de fuente medio */
 }
 
 #nav a {
@@ -217,39 +217,40 @@ body.menu-open {
   opacity: 1;
   /* Totalmente visible */
   transform: scaleY(1);
-  /* Escala horizontal normal */
+  /* Escala vertical normal */
   transform-origin: bottom;
+  /* Punto de origen de la transformación en la parte inferior */
 
   transition: opacity 0.3s ease, transform 0.3s ease;
   /* Animación combinada de opacidad y estiramiento */
 }
 
-/* Cuando abre → se desvanece y se estira horizontalmente */
+/* Cuando abre → se desvanece y se comprime verticalmente */
 
 #hamburger-button.open .hamburger {
   opacity: 0;
   /* Invisible cuando el menú está abierto */
   transform: scaleY(0);
+  /* Se comprime verticalmente hasta desaparecer */
   transform-origin: top;
-  /* Se comprime horizontalmente hasta desaparecer */
+  /* Punto de origen de la transformación en la parte superior */
   transition: opacity 0.3s ease, transform 0.3s ease;
   /* Animación combinada de opacidad y estiramiento */
 }
-
 
 /* =====================================================
    CLOSE (X) ICON
    ===================================================== */
 
-/* Oculta por defecto */
+/* Oculto por defecto */
 
 #hamburger-button .close {
   opacity: 0;
   /* Invisible por defecto */
   transform: scaleY(0);
-  /* Comprimido horizontalmente (sin ancho) */
+  /* Comprimido verticalmente (sin altura) */
   transform-origin: top;
-
+  /* Punto de origen de la transformación en la parte superior */
 
   justify-content: center;
   /* Centra las barras verticalmente */
@@ -281,19 +282,18 @@ body.menu-open {
    STATE — MENU OPEN
    ===================================================== */
 
-/* X aparece y se estira horizontalmente */
+/* X aparece y se estira verticalmente */
 
 #hamburger-button.open .close {
   opacity: 1;
   /* Visible cuando el menú está abierto */
   transform: scaleY(1);
-  /* Escala horizontal normal */
+  /* Escala vertical normal */
   transform-origin: top;
-  /* Se estira hasta su ancho normal */
+  /* Punto de origen de la transformación en la parte superior */
   transition: opacity 0.3s ease, transform 0.3s ease;
   /* Animación combinada de opacidad y estiramiento */
 }
-
 
 /* =====================================================
    MOBILE MENU
@@ -340,8 +340,9 @@ body.menu-open {
   opacity: 1;
   /* Totalmente visible */
   transform: translateY(0);
-  transform-origin: bottom;
   /* Posición original */
+  transform-origin: bottom;
+  /* Punto de origen de la transformación en la parte inferior */
   pointer-events: auto;
   /* Interactuable */
 }
@@ -391,124 +392,194 @@ body.menu-open {
   /* Bloquea clicks en el contenido de abajo */
 }
 
-
 /* =====================================================
    HERO
    ===================================================== */
 
 #hero-container {
-   position: fixed;
-
-
-  /* Fija el header en la parte superior de la ventana */
+  position: fixed;
+  /* Fija el hero en la parte superior de la ventana */
   top: 76px;
-  /* Separación desde el borde superior */
+  /* Separación desde el borde superior (debajo del header de 64px + 12px de espacio) */
   left: 13rem;
   /* Separación desde el borde izquierdo */
   right: 13rem;
   /* Separación desde el borde derecho */
   height: 350px;
-  /* Altura fija del header */
+  /* Altura fija del hero */
 
   border-radius: 0 0 14px 14px;
-  /* Bordes redondeados */
+  /* Bordes redondeados solo en la parte inferior */
   background: linear-gradient(to top right, #f9f9fd, #cacbdd);
-  /* Fondo con degradado */
+  /* Fondo con degradado diagonal */
   box-shadow: rgba(0, 0, 0, 0.08) 0 4px 8px;
-
+  /* Sombra suave */
 
   background-image: url("./img/background_hero.jpg");
-  /* Imagen de fondo */
+  /* Imagen de fondo del hero */
   background-size: cover;
   /* Escala la imagen para cubrir todo el contenedor */
   background-position: center;
   /* Centra la imagen de fondo */
   background-repeat: no-repeat;
   /* Evita que la imagen se repita */
-  text-align: center; 
+  
+  text-align: center;
+  /* Centra el texto dentro del hero */
+  z-index: 10;
+  /* Asegura que esté por encima del contenido scrolleable pero debajo del header */
 }
-
 
 /* =====================================================
    HERO CONTENT
    ===================================================== */
 
-
 #hero-title {
   color: #1f283f;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* Color oscuro para el título principal */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* Tipografía serif elegante */
   font-weight: bolder;
- text-shadow: 0.5px 0.5px 0.5px  #1f283f1c;
- font-size: 30px;
-   transform: scaleY(0.95);
+  /* Grosor de fuente extra negrita */
+  text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
+  /* Sombra de texto muy sutil */
+  font-size: 30px;
+  /* Tamaño de fuente del título */
+  transform: scaleY(0.95);
+  /* Comprime ligeramente el texto verticalmente para un efecto visual */
 }
 
-#hero-subtitle{
+#hero-subtitle {
   position: fixed;
+  /* Fija el subtítulo en una posición específica */
   color: #252e4b;
-font-size: 15px;
- font-weight:400;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* Color del subtítulo */
+  font-size: 15px;
+  /* Tamaño de fuente del subtítulo */
+  font-weight: 400;
+  /* Grosor de fuente normal */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* Tipografía sans-serif moderna */
   left: 3rem;
   /* Separación desde el borde izquierdo */
   right: 3rem;
- margin-top: -15px;
-  
+  /* Separación desde el borde derecho */
+  margin-top: -15px;
+  /* Margen negativo para acercar al título */
 }
-
 
 /* =====================================================
    FORM CONTENT
    ===================================================== */
+
 #form-container {
-  position: absolute;
+  position: fixed;
+  /* Fija el formulario en una posición específica de la ventana */
+  top: 260px;
+  /* Posición calculada: top del hero (76px) + altura del hero (350px) - mitad del form (90px) */
+  /* Esto centra el formulario en el borde inferior del hero */
+  left: 50%;
+  /* Posiciona el borde izquierdo del formulario en el centro horizontal */
+  transform: translateX(-50%);
+  /* Desplaza el formulario hacia la izquierda por la mitad de su ancho para centrarlo */
+
   display: flex;
+  /* Activa Flexbox */
   flex-direction: column;
+  /* Dirección vertical para los elementos hijos */
   align-items: center;
+  /* Centra horizontalmente los elementos hijos */
   justify-content: center;
- width: 100%;
-  top:250px;
+  /* Centra verticalmente los elementos hijos */
+  
+  width: 90%;
+  /* Ancho del formulario al 90% del viewport */
+  max-width: 500px;
+  /* Ancho máximo para no ser demasiado grande en pantallas grandes */
+  z-index: 30;
+  /* Por encima del hero (z-index: 10) */
 }
 
+#form_subtitle {
+  position: fixed;
+  /* Fija el subtítulo del formulario en una posición específica */
+  
+  /* Posición calculada: top del hero (76px) + altura del hero (350px) + altura aproximada del form (100px) */
+  left: 50%;
+  /* Posiciona el borde izquierdo en el centro horizontal */
+  transform: translateX(-50%);
+  /* Desplaza hacia la izquierda por la mitad de su ancho para centrarlo */
 
-#form_subtitle{
   color: #0f192e;
-position: absolute;
-  top: 128px;
+  /* Color del texto del subtítulo */
   font-size: 10px;
-  display: flex;
-  z-index: 2000;
+  /* Tamaño de fuente pequeño */
+  z-index: 20000000020;
+  /* Mismo nivel que el formulario */
+  white-space: nowrap;
+  /* Evita que el texto se parta en varias líneas */
+  bottom: 4px;
 
 }
 
 /* =====================================================
-   TEXT CONTENT
+   TEXT CONTENT (SCROLLEABLE)
    ===================================================== */
+
 #text-container {
-  width: 100%;
-  position: absolute;
-  top: 410px; /* Debe ser MAYOR que el top de form-container + su altura */
-text-align: center;
+
+
+  position: relative;
+  /* Posicionamiento relativo - NO fixed, para que pueda scrollear normalmente */
+  
+  margin-top: 430px;
+  /* Margen superior calculado para que comience debajo de todos los elementos fijos */
+  /* 76px (header top) + 350px (hero height) + 200px (espacio para form y subtitle) */
+
   display: flex;
+  /* Activa Flexbox */
   flex-direction: column;
+  /* Dirección vertical para los párrafos */
   align-items: center;
+  /* Centra horizontalmente los elementos hijos */
   justify-content: center;
-  padding: 20px;
-   color:  #f9f9fd;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-weight: medium;
- text-shadow: 0.5px 0.5px 0.5px  #1f283f1c;
- font-size:17px;
-   transform: scaleY(0.95);
+  /* Centra verticalmente los elementos hijos */
+  
+
+  /* Espaciado interno vertical y horizontal */
+ 
+  /* Altura mínima igual a la altura de la ventana para forzar scroll */
 }
-#text-container-subtitle{
- color:  #f9f9fdec;
-  transform: translateY(-20px);
-  font-weight: lighter;
-  font-size: 12px;
- font-weight:50px;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
- } 
+#text-container p{
+  color: #f9f9fd;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: medium;
+    text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
+    font-size: 17px;
+    transform: scaleY(0.95);
+  
+}
+
+#text-container-subtitle {
+   font-size: small;
+   margin-top: -5px;
+   margin-bottom: 25px;
+}
+#text-img-container {
+
+max-width: 90%;
+
+
+ 
+}
+
+#text-img-container img {
+ height: 80px;
+   width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* =====================================================
    FOOTER
    ===================================================== */
@@ -517,14 +588,14 @@ text-align: center;
   position: fixed;
   /* Fijo en la pantalla */
   bottom: 6px;
-  /* Pegado al borde inferior */
+  /* Pegado al borde inferior con pequeño margen */
   left: 13rem;
   /* Separación desde el borde izquierdo */
   right: 13rem;
   /* Separación desde el borde derecho */
 
   height: 44px;
-  /* Altura fija */
+  /* Altura fija del footer */
   border-radius: 14px;
   /* Bordes redondeados */
   background: rgba(10, 20, 40, 0.85);
@@ -536,7 +607,7 @@ text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   /* Borde superior sutil */
   z-index: 1000;
-  /* Capa muy alta para estar siempre visible */
+  /* Capa muy alta para estar siempre visible por encima de todo */
   background-clip: padding-box;
   /* El fondo no se extiende más allá del padding */
 }
@@ -582,16 +653,16 @@ text-align: center;
   color: rgba(255, 255, 255, 0.75);
   /* Color de texto blanco semitransparente */
   display: flex;
-  /* Activa Flexbox */
+  /* Activa Flexbox para alinear el símbolo y el texto */
 }
 
 #copyright-desktop {
   justify-self: center;
-  /* Se centra en su celda de grid */
+  /* Se centra en su celda de grid (solo funciona cuando footer-content es grid) */
   white-space: nowrap;
   /* Evita que el texto se divida en varias líneas */
   transform: translateX(40px);
-  /* Desplaza el texto 40px a la derecha */
+  /* Desplaza el texto 40px a la derecha para ajuste visual */
   color: rgba(255, 255, 255, 0.75);
   /* Color de texto blanco semitransparente */
 }
@@ -609,13 +680,12 @@ body.menu-open .sticky-footer {
 }
 
 /* =====================================================
-CONTACT TOGGLE
-===================================================== */
+   CONTACT TOGGLE
+   ===================================================== */
 
 #contact-toggle {
   cursor: pointer;
   /* Cursor de puntero al pasar sobre el elemento */
-
   text-align: right;
   /* Alinea el texto a la derecha */
 }
@@ -629,21 +699,21 @@ CONTACT TOGGLE
 
 .contact-text {
   display: inline-block;
-  /* Comportamiento de bloque en línea para transformaciones */
+  /* Comportamiento de bloque en línea para permitir transformaciones */
   transition: opacity 0.2s ease, transform 0.2s ease;
-  /* Animación de cambio */
+  /* Animación de cambio suave */
 }
 
 .contact-text.is-fading {
   opacity: 0;
-  /* Invisible */
+  /* Invisible durante la transición */
   transform: translateX(-20px);
-  /* Desplazado a la izquierda */
+  /* Desplazado a la izquierda durante la transición */
 }
 
 #contact-toggle::after {
   content: "Copiado";
-  /* Texto del tooltip */
+  /* Texto del tooltip que aparece al copiar */
   position: absolute;
   /* Posicionamiento absoluto respecto al toggle */
   right: 0;
@@ -652,7 +722,7 @@ CONTACT TOGGLE
   /* Encima del elemento */
 
   transform: translateX(7px) translateY(-20px);
-  /* Ajuste fino de posición */
+  /* Ajuste fino de posición del tooltip */
   font-size: 12px;
   /* Texto pequeño */
   padding: 4px 8px;
@@ -660,7 +730,7 @@ CONTACT TOGGLE
   border-radius: 6px;
   /* Bordes redondeados */
   background: rgba(10, 20, 40, 0.75);
-  /* Fondo oscuro */
+  /* Fondo oscuro semitransparente */
   color: rgba(255, 255, 255, 0.75);
   /* Texto claro */
 
@@ -669,14 +739,14 @@ CONTACT TOGGLE
   pointer-events: none;
   /* No interactuable */
   transition: opacity 0.2s ease, transform 0.2s ease;
-  /* Animación */
+  /* Animación de aparición */
 }
 
 #contact-toggle.show-hint::after {
   opacity: 1;
-  /* Visible */
+  /* Visible cuando se activa la clase */
   transform: translateX(7px) translateY(-20px);
-  /* Mantiene la posición (podría ajustarse más arriba si se desea) */
+  /* Mantiene la posición */
 }
 
 /* =====================================================
@@ -684,7 +754,7 @@ CONTACT TOGGLE
    ===================================================== */
 
 @media (max-width: 975px) {
-  /* Media query para pantallas de 975px o menos */
+  /* Media query para pantallas de 975px o menos (tablets y móviles) */
 
   #nav {
     display: none;
@@ -703,15 +773,25 @@ CONTACT TOGGLE
 
   #header {
     left: 15px;
-    /* Separación desde el borde izquierdo reducida */
+    /* Separación desde el borde izquierdo reducida para móviles */
     right: 15px;
-    /* Separación desde el borde derecho reducida */
+    /* Separación desde el borde derecho reducida para móviles */
   }
+
   #hero-container {
-      left: 15px;
-    /* Separación desde el borde izquierdo reducida */
+    left: 15px;
+    /* Separación desde el borde izquierdo reducida para móviles */
     right: 15px;
-    /* Separación desde el borde derecho reducida */
+    /* Separación desde el borde derecho reducida para móviles */
+
+  }
+
+ 
+
+
+  #text-container p {
+    font-size: 16px;
+    /* Tamaño de fuente ligeramente reducido para móviles */
   }
 
   #copyright {
@@ -728,9 +808,9 @@ CONTACT TOGGLE
 
   .sticky-footer {
     left: 10px;
-    /* Separación desde el borde izquierdo reducida */
+    /* Separación desde el borde izquierdo reducida para móviles */
     right: 10px;
-    /* Separación desde el borde derecho reducida */
+    /* Separación desde el borde derecho reducida para móviles */
   }
 }
 
@@ -739,20 +819,20 @@ CONTACT TOGGLE
    ===================================================== */
 
 @media (min-width: 976px) {
-  /* Media query para pantallas de 976px o más */
+  /* Media query para pantallas de 976px o más (escritorio) */
 
   .footer-content {
     display: grid;
-    /* Activa CSS Grid */
+    /* Activa CSS Grid para mejor control del layout */
     grid-template-columns: auto 1fr auto;
-    /* Tres columnas: auto, flexible, auto */
+    /* Tres columnas: auto (izquierda), flexible (centro), auto (derecha) */
     align-items: center;
     /* Centra verticalmente los elementos */
   }
 
   #copyright-desktop {
     justify-self: center;
-    /* Se centra en su celda de grid */
+    /* Se centra en su celda de grid (columna central) */
     white-space: nowrap;
     /* Evita que el texto se divida en varias líneas */
   }
