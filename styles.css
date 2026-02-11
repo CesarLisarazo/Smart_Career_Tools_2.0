@@ -421,7 +421,7 @@ color:#f8fafc;  /* Color oscuro para el título principal */
   /* Tamaño de fuente del título */
   transform: scaleY(0.95);
   /* Comprime ligeramente el texto verticalmente para un efecto visual */
-
+text-align: center;
 margin-top: 0px;
  
 }
