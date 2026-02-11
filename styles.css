@@ -90,7 +90,14 @@ body.menu-open #form_subtitle
   opacity: 0;
   /* Oculta visualmente el formulario cuando el menú está abierto */
 }
+body {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
 
+body.page-loaded {
+  opacity: 1;
+}
 
 /* =====================================================
    HEADER

@@ -191,3 +191,24 @@ if (contactLink && textEl) {
     n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
     (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '2060315');
+// ================= PAGE LOAD CONTROL =================
+
+const formContainer = document.querySelector(".ml-embedded");
+
+function showPage() {
+  document.body.classList.add("page-loaded");
+}
+
+if (formContainer) {
+  const observer = new MutationObserver((mutations, obs) => {
+    if (formContainer.children.length > 0) {
+      showPage();
+      obs.disconnect();
+    }
+  });
+
+  observer.observe(formContainer, { childList: true });
+}
+
+// Fallback: si algo falla, mostrar igual después de 3 segundos
+setTimeout(showPage, 3000);
