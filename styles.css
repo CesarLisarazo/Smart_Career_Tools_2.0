@@ -523,6 +523,8 @@ margin-top: 0px;
 }
 
 #text-container-title {
+  
+  text-align: center;
   color: #f9f9fd;
   /* Color claro para el título del texto */
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -538,16 +540,18 @@ margin-top: 0px;
 }
 
 #text-container-subtitle {
-  font-size: 13px;
-  /* Tamaño de fuente del subtítulo */
+  color: #f9f9fd;
+  /* Color claro para el título del texto */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* Tipografía serif elegante */
+  font-weight: medium;
+  /* Grosor de fuente medio */
+  text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
+  /* Sombra de texto muy sutil */
+  font-size: 17px;
+  /* Tamaño de fuente del título */
   transform: scaleY(0.95);
   /* Comprime ligeramente el texto verticalmente para un efecto visual */
-  color: #f9f9fd;
-  /* Color claro del subtítulo */
-  margin-top: -5px;
-  /* Margen negativo para acercar al título */
-  margin-bottom: 25px;
-  /* Espacio inferior */
 }
 
 #text-img-container {
@@ -598,22 +602,21 @@ margin-top: 0px;
 }
 
 #final-text {
- color: #f9f9fd;
+ margin-top: 0;
+  
+  color: #f9f9fd;
   /* Color claro para el título del texto */
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   /* Tipografía serif elegante */
-  font-weight: lighter;
+  font-weight: medium;
   /* Grosor de fuente medio */
   text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
   /* Sombra de texto muy sutil */
   font-size: 17px;
   /* Tamaño de fuente del título */
-
- 
   transform: scaleY(0.95);
   /* Comprime ligeramente el texto verticalmente para un efecto visual */
 }
-
 /* =====================================================
    FOOTER
    ===================================================== */
