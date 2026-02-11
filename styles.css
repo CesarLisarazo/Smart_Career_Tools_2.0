@@ -42,46 +42,40 @@ body {
   /* Color de fondo de respaldo si la imagen no carga */
   padding-bottom: 60px;
   /* Espacio inferior para evitar que el footer fijo tape contenido */
-  background:
-    /* Onda inferior profunda */
-    radial-gradient(
-      130% 60% at 95% 110%,
-      rgba(255, 255, 255, 0.10) 0%,
-      rgba(255, 255, 255, 0.06) 30%,
-      rgba(255, 255, 255, 0.03) 55%,
-      rgba(255, 255, 255, 0.00) 75%
-    ),
-    /* Onda media */
-    radial-gradient(
-      140% 65% at 85% 85%,
-      rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0.07) 35%,
-      rgba(255, 255, 255, 0.03) 60%,
-      rgba(255, 255, 255, 0.00) 80%
-    ),
-    /* Onda superior */
-    radial-gradient(
-      160% 70% at 70% 55%,
-      rgba(255, 255, 255, 0.14) 0%,
-      rgba(255, 255, 255, 0.08) 40%,
-      rgba(255, 255, 255, 0.03) 65%,
-      rgba(255, 255, 255, 0.00) 85%
-    ),
-    /* Base */
-    linear-gradient(
-      135deg,
-      #1b2743 0%,
-      #1a2a4f 35%,
-      #16224a 60%,
-      #0f1a3a 100%
-    );
-  /* Fondo con múltiples capas de gradientes radiales y lineales para efecto de ondas */
-  background-repeat: no-repeat;
-  /* Evita que el fondo se repita */
-  background-attachment: fixed;
-  /* Fija el fondo al viewport para efecto parallax */
 }
 
+body::before {
+  content: "";
+  /* Necesario para que el pseudo-elemento se renderice */
+  position: fixed;
+  /* Fija el fondo para que no se mueva al hacer scroll */
+  inset: 0;
+  /* top, right, bottom, left = 0. Ocupa toda la pantalla */
+
+  background-image: url("./img/background.jpg");
+  /* Imagen de fondo */
+  background-size: cover;
+  /* Escala la imagen para cubrir todo el contenedor */
+  background-position: center;
+  /* Centra la imagen de fondo */
+  background-repeat: no-repeat;
+  /* Evita que la imagen se repita */
+
+  z-index: -1;
+  /* Coloca este elemento detrás de todo el contenido */
+}
+
+body.menu-open {
+  overflow: hidden;
+  /* Evita el scroll en el body cuando el menú móvil está abierto */
+}
+
+body.menu-open #form-container,
+body.menu-open .ml-embedded,
+body.menu-open #form_subtitle {
+  pointer-events: none;
+  opacity: 0;
+}
 body.menu-open {
   overflow: hidden;
   /* Evita el scroll en el body cuando el menú móvil está abierto */
