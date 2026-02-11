@@ -83,7 +83,9 @@ body.menu-open {
 
 body.menu-open #form-container,
 body.menu-open .ml-embedded,
-body.menu-open #form_subtitle {
+body.menu-open #form_subtitle,
+body.menu-open #scroll-layer 
+ {
   pointer-events: none;
   /* Desactiva la interacción con el formulario cuando el menú está abierto */
   opacity: 0;
@@ -348,7 +350,7 @@ body.menu-open #form_subtitle {
 }
 
 .mobile-link {
-  margin: 10px 15px 15px 15px;
+  margin: 10px;
   /* Margen superior y lateral */
   padding: 16px 20px;
   /* Espaciado interno generoso para tocar fácilmente */
@@ -602,17 +604,16 @@ margin-top: 0px;
 }
 
 #final-text {
- margin-top: 0;
   
   color: #f9f9fd;
   /* Color claro para el título del texto */
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   /* Tipografía serif elegante */
   font-weight: medium;
   /* Grosor de fuente medio */
   text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
   /* Sombra de texto muy sutil */
-  font-size: 17px;
+  font-size: 15px;
   /* Tamaño de fuente del título */
   transform: scaleY(0.95);
   /* Comprime ligeramente el texto verticalmente para un efecto visual */
@@ -839,6 +840,7 @@ body.menu-open .sticky-footer {
 
   #text-img-responsive {
     display: flex;
+    margin-top: 10px;
     /* Muestra imagen responsive en móviles */
   }
 }
