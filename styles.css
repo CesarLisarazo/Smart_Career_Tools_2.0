@@ -355,7 +355,7 @@ transform: scale(0.8);  /* Altura de la imagen relativa al contenedor padre */
 }
 
 .mobile-link {
-  margin: 10px;
+  margin: 5px 10px;
   /* Margen superior y lateral */
   padding: 16px 20px;
   /* Espaciado interno generoso para tocar fácilmente */
