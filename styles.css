@@ -598,14 +598,18 @@ margin-top: 0px;
 }
 
 #final-text {
-  color: #f9f9fd;
-  /* Color claro del texto */
-  justify-content: center;
-  /* Centra horizontalmente (nota: solo funciona en flex container) */
+ color: #f9f9fd;
+  /* Color claro para el título del texto */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* Tipografía serif elegante */
+  font-weight: lighter;
+  /* Grosor de fuente medio */
   text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
   /* Sombra de texto muy sutil */
-  font-size: 13px;
-  /* Tamaño de fuente del texto */
+  font-size: 17px;
+  /* Tamaño de fuente del título */
+
+ 
   transform: scaleY(0.95);
   /* Comprime ligeramente el texto verticalmente para un efecto visual */
 }
@@ -910,7 +914,7 @@ body.menu-open .sticky-footer {
 #scroll-layer #form-container {
   position: relative;
   /* Cambia de fijo a relativo para fluir en el scroll */
-  top: 0px;
+  top: -15px;
   /* Mantiene posición visual original */
   left: 50%;
   /* Centra horizontalmente */
