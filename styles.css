@@ -42,8 +42,6 @@ body {
   /* Color de fondo de respaldo si la imagen no carga */
   padding-bottom: 60px;
   /* Espacio inferior para evitar que el footer fijo tape contenido */
-
-  
   background:
     /* Onda inferior profunda */
     radial-gradient(
@@ -53,7 +51,6 @@ body {
       rgba(255, 255, 255, 0.03) 55%,
       rgba(255, 255, 255, 0.00) 75%
     ),
-
     /* Onda media */
     radial-gradient(
       140% 65% at 85% 85%,
@@ -62,7 +59,6 @@ body {
       rgba(255, 255, 255, 0.03) 60%,
       rgba(255, 255, 255, 0.00) 80%
     ),
-
     /* Onda superior */
     radial-gradient(
       160% 70% at 70% 55%,
@@ -71,7 +67,6 @@ body {
       rgba(255, 255, 255, 0.03) 65%,
       rgba(255, 255, 255, 0.00) 85%
     ),
-
     /* Base */
     linear-gradient(
       135deg,
@@ -80,14 +75,12 @@ body {
       #16224a 60%,
       #0f1a3a 100%
     );
-
+  /* Fondo con múltiples capas de gradientes radiales y lineales para efecto de ondas */
   background-repeat: no-repeat;
+  /* Evita que el fondo se repita */
   background-attachment: fixed;
-
+  /* Fija el fondo al viewport para efecto parallax */
 }
-
-
-
 
 body.menu-open {
   overflow: hidden;
@@ -98,7 +91,9 @@ body.menu-open #form-container,
 body.menu-open .ml-embedded,
 body.menu-open #form_subtitle {
   pointer-events: none;
+  /* Desactiva la interacción con el formulario cuando el menú está abierto */
   opacity: 0;
+  /* Oculta visualmente el formulario cuando el menú está abierto */
 }
 
 /* =====================================================
@@ -116,9 +111,8 @@ body.menu-open #form_subtitle {
   /* Separación desde el borde derecho */
   height: 64px;
   /* Altura fija del header */
-
-  border-radius: 14px 14px 0 0;
-  /* Bordes redondeados superiores */
+  border-radius: 10px;
+  /* Bordes redondeados */
   background: linear-gradient(to top right, #f9f9fd, #e2e6f9);
   /* Fondo con degradado diagonal */
   box-shadow: rgba(0, 0, 0, 0.08) 0 4px 8px;
@@ -136,7 +130,6 @@ body.menu-open #form_subtitle {
   /* Centra el contenedor horizontalmente */
   padding: 0 24px;
   /* Espaciado interno lateral */
-
   display: flex;
   /* Activa Flexbox para alinear elementos */
   align-items: center;
@@ -214,7 +207,6 @@ body.menu-open #form_subtitle {
   /* Posicionamiento absoluto dentro del botón */
   inset: 0;
   /* Ocupa todo el espacio del botón (top, right, bottom, left = 0) */
-
   display: flex;
   /* Activa Flexbox */
   flex-direction: column;
@@ -242,21 +234,16 @@ body.menu-open #form_subtitle {
    HAMBURGER ICON
    ===================================================== */
 
-/* Visible por defecto */
-
 #hamburger-button .hamburger {
   opacity: 1;
-  /* Totalmente visible */
+  /* Totalmente visible por defecto */
   transform: scaleY(1);
   /* Escala vertical normal */
   transform-origin: bottom;
   /* Punto de origen de la transformación en la parte inferior */
-
   transition: opacity 0.3s ease, transform 0.3s ease;
   /* Animación combinada de opacidad y estiramiento */
 }
-
-/* Cuando abre → se desvanece y se comprime verticalmente */
 
 #hamburger-button.open .hamburger {
   opacity: 0;
@@ -273,8 +260,6 @@ body.menu-open #form_subtitle {
    CLOSE (X) ICON
    ===================================================== */
 
-/* Oculto por defecto */
-
 #hamburger-button .close {
   opacity: 0;
   /* Invisible por defecto */
@@ -282,17 +267,13 @@ body.menu-open #form_subtitle {
   /* Comprimido verticalmente (sin altura) */
   transform-origin: top;
   /* Punto de origen de la transformación en la parte superior */
-
   justify-content: center;
   /* Centra las barras verticalmente */
   align-items: center;
   /* Centra las barras horizontalmente */
-
   transition: opacity 0.3s ease, transform 0.3s ease;
   /* Animación combinada de opacidad y estiramiento */
 }
-
-/* Barras cruz */
 
 #hamburger-button .close .bar {
   position: absolute;
@@ -313,13 +294,11 @@ body.menu-open #form_subtitle {
    STATE — MENU OPEN
    ===================================================== */
 
-/* X aparece y se estira verticalmente */
-
 #hamburger-button.open .close {
   opacity: 1;
   /* Visible cuando el menú está abierto */
   transform: scaleY(1);
-  /* Escala vertical normal */
+  /* Se expande verticalmente */
   transform-origin: top;
   /* Punto de origen de la transformación en la parte superior */
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -339,7 +318,6 @@ body.menu-open #form_subtitle {
   /* Margen izquierdo */
   right: 12px;
   /* Margen derecho */
-
   background: linear-gradient(to top right, #dfdfe9, #e5e8f6);
   /* Fondo degradado */
   padding: 8px 0;
@@ -350,19 +328,16 @@ body.menu-open #form_subtitle {
   /* Sombra pronunciada */
   z-index: 60;
   /* Capa superior (encima del overlay) */
-
   display: flex;
   /* Flexbox para lista vertical */
   flex-direction: column;
   /* Dirección vertical */
-
   opacity: 0;
   /* Invisible inicialmente */
   transform: translateY(-10px);
   /* Desplazado ligeramente hacia arriba */
   pointer-events: none;
   /* No interactuable cuando está oculto */
-
   transition: opacity 0.25s ease, transform 0.25s ease;
   /* Animación suave de aparición */
 }
@@ -428,37 +403,11 @@ body.menu-open #form_subtitle {
    ===================================================== */
 
 #hero-container {
-  position: fixed;
-  /* Fija el hero en la parte superior de la ventana */
-  top: 76px;
-  /* Separación desde el borde superior (debajo del header de 64px + 12px de espacio) */
-  left: 13rem;
-  /* Separación desde el borde izquierdo */
-  right: 13rem;
-  /* Separación desde el borde derecho */
-  height: 350px;
-  /* Altura fija del hero */
-
-  border-radius: 0 0 14px 14px;
-  /* Bordes redondeados solo en la parte inferior */
-  background: linear-gradient(to top right, #f9f9fd, #cacbdd);
-  /* Fondo con degradado diagonal */
-  box-shadow: rgba(0, 0, 0, 0.08) 0 4px 8px;
-  /* Sombra suave */
-
-  background-image: url("./img/background_hero.jpg");
-  /* Imagen de fondo del hero */
-  background-size: cover;
-  /* Escala la imagen para cubrir todo el contenedor */
-  background-position: center;
-  /* Centra la imagen de fondo */
-  background-repeat: no-repeat;
-  /* Evita que la imagen se repita */
-  
-  text-align: center;
-  /* Centra el texto dentro del hero */
-  z-index: 10;
-  /* Asegura que esté por encima del contenido scrolleable pero debajo del header */
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+ 
 }
 
 /* =====================================================
@@ -466,8 +415,7 @@ body.menu-open #form_subtitle {
    ===================================================== */
 
 #hero-title {
-  color: #1f283f;
-  /* Color oscuro para el título principal */
+color:#f8fafc;  /* Color oscuro para el título principal */
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   /* Tipografía serif elegante */
   font-weight: bolder;
@@ -478,12 +426,13 @@ body.menu-open #form_subtitle {
   /* Tamaño de fuente del título */
   transform: scaleY(0.95);
   /* Comprime ligeramente el texto verticalmente para un efecto visual */
+ 
 }
 
 #hero-subtitle {
   position: fixed;
   /* Fija el subtítulo en una posición específica */
-  color: #252e4b;
+ color:#f8fafc; 
   /* Color del subtítulo */
   font-size: 15px;
   /* Tamaño de fuente del subtítulo */
@@ -491,12 +440,8 @@ body.menu-open #form_subtitle {
   /* Grosor de fuente normal */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   /* Tipografía sans-serif moderna */
-  left: 3rem;
-  /* Separación desde el borde izquierdo */
-  right: 3rem;
-  /* Separación desde el borde derecho */
-  margin-top: -15px;
-  /* Margen negativo para acercar al título */
+
+
 }
 
 /* =====================================================
@@ -513,7 +458,6 @@ body.menu-open #form_subtitle {
   /* Posiciona el borde izquierdo del formulario en el centro horizontal */
   transform: translateX(-50%);
   /* Desplaza el formulario hacia la izquierda por la mitad de su ancho para centrarlo */
-
   display: flex;
   /* Activa Flexbox */
   flex-direction: column;
@@ -522,7 +466,6 @@ body.menu-open #form_subtitle {
   /* Centra horizontalmente los elementos hijos */
   justify-content: center;
   /* Centra verticalmente los elementos hijos */
-  
   width: 90%;
   /* Ancho del formulario al 90% del viewport */
   max-width: 500px;
@@ -533,14 +476,13 @@ body.menu-open #form_subtitle {
 
 #form_subtitle {
   position: fixed;
+ 
   /* Fija el subtítulo del formulario en una posición específica */
-  
   /* Posición calculada: top del hero (76px) + altura del hero (350px) + altura aproximada del form (100px) */
   left: 50%;
   /* Posiciona el borde izquierdo en el centro horizontal */
   transform: translateX(-50%);
   /* Desplaza hacia la izquierda por la mitad de su ancho para centrarlo */
-
   color: #0f192e;
   /* Color del texto del subtítulo */
   font-size: 10px;
@@ -549,8 +491,8 @@ body.menu-open #form_subtitle {
   /* Mismo nivel que el formulario */
   white-space: nowrap;
   /* Evita que el texto se parta en varias líneas */
-  bottom: 4px;
 
+  /* Posición desde el borde inferior */
 }
 
 /* =====================================================
@@ -559,14 +501,11 @@ body.menu-open #form_subtitle {
 
 #text-container {
 
-
   position: relative;
   /* Posicionamiento relativo - NO fixed, para que pueda scrollear normalmente */
-  
-  margin-top: 430px;
+ 
   /* Margen superior calculado para que comience debajo de todos los elementos fijos */
   /* 76px (header top) + 350px (hero height) + 200px (espacio para form y subtitle) */
-
   display: flex;
   /* Activa Flexbox */
   flex-direction: column;
@@ -575,77 +514,98 @@ body.menu-open #form_subtitle {
   /* Centra horizontalmente los elementos hijos */
   justify-content: center;
   /* Centra verticalmente los elementos hijos */
-
-
   /* Espaciado interno vertical y horizontal */
- 
   /* Altura mínima igual a la altura de la ventana para forzar scroll */
 }
-#text-container-title{
-  
+
+#text-container-title {
   color: #f9f9fd;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: medium;
-    text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
-    font-size: 17px;
-    transform: scaleY(0.95);
+  /* Color claro para el título del texto */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* Tipografía serif elegante */
+  font-weight: medium;
+  /* Grosor de fuente medio */
+  text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
+  /* Sombra de texto muy sutil */
+  font-size: 17px;
+  /* Tamaño de fuente del título */
+  transform: scaleY(0.95);
+  /* Comprime ligeramente el texto verticalmente para un efecto visual */
 }
 
 #text-container-subtitle {
-   font-size: 13px;
+  font-size: 13px;
+  /* Tamaño de fuente del subtítulo */
   transform: scaleY(0.95);
-     color: #f9f9fd;
-   margin-top: -5px;
-   margin-bottom: 25px;
+  /* Comprime ligeramente el texto verticalmente para un efecto visual */
+  color: #f9f9fd;
+  /* Color claro del subtítulo */
+  margin-top: -5px;
+  /* Margen negativo para acercar al título */
+  margin-bottom: 25px;
+  /* Espacio inferior */
 }
+
 #text-img-container {
-display: flex;
-  align-items: center; 
-  justify-content: center;
-max-width: 95%;
-
-
- 
-}
-
-#text-img{
- height: 80px;
-   width: 100%;
-  height: auto;
-  display: block;
-}
-#text-img-responsive{
-  display: none;
-align-items: center;
-  justify-content: center;
-  
-
-   width: 95%;
- 
- 
-}
-#final-text-container{
   display: flex;
-  align-items: center; 
+  /* Activa Flexbox */
+  align-items: center;
+  /* Centra verticalmente */
   justify-content: center;
-max-width: 90%;
-
- margin: 0 auto;
-
+  /* Centra horizontalmente */
+  max-width: 95%;
+  /* Ancho máximo del contenedor */
 }
 
-
-#final-text{
-   color: #f9f9fd;
-
-
-   justify-content: center;
-    text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
-    font-size: 13px;
-    transform: scaleY(0.95);
-
-
+#text-img {
+  height: 80px;
+  /* Altura específica de la imagen (se sobrescribe después) */
+  width: 100%;
+  /* Ancho del 100% del contenedor */
+  height: auto;
+  /* Altura automática para mantener proporción */
+  display: block;
+  /* Comportamiento de bloque */
 }
+
+#text-img-responsive {
+  display: none;
+  /* Oculto por defecto, se muestra solo en móviles */
+  align-items: center;
+  /* Centra verticalmente */
+  justify-content: center;
+  /* Centra horizontalmente */
+  width: 95%;
+  /* Ancho del 95% del contenedor */
+}
+
+#final-text-container {
+  display: flex;
+  /* Activa Flexbox */
+  align-items: center;
+  /* Centra verticalmente */
+  justify-content: center;
+  /* Centra horizontalmente */
+  max-width: 90%;
+  /* Ancho máximo del contenedor */
+  margin: 0 auto;
+  /* Centra horizontalmente */
+ 
+}
+
+#final-text {
+  color: #f9f9fd;
+  /* Color claro del texto */
+  justify-content: center;
+  /* Centra horizontalmente (nota: solo funciona en flex container) */
+  text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
+  /* Sombra de texto muy sutil */
+  font-size: 13px;
+  /* Tamaño de fuente del texto */
+  transform: scaleY(0.95);
+  /* Comprime ligeramente el texto verticalmente para un efecto visual */
+}
+
 /* =====================================================
    FOOTER
    ===================================================== */
@@ -659,7 +619,6 @@ max-width: 90%;
   /* Separación desde el borde izquierdo */
   right: 13rem;
   /* Separación desde el borde derecho */
-
   height: 44px;
   /* Altura fija del footer */
   border-radius: 14px;
@@ -687,14 +646,12 @@ max-width: 90%;
   /* Centra horizontalmente */
   padding: 0 16px;
   /* Espaciado interno lateral */
-
   display: flex;
   /* Activa Flexbox */
   align-items: center;
   /* Centra verticalmente */
   justify-content: space-between;
   /* Distribuye espacio entre elementos */
-
   color: rgba(255, 255, 255, 0.75);
   /* Color de texto blanco semitransparente */
   font-size: 12px;
@@ -786,7 +743,6 @@ body.menu-open .sticky-footer {
   /* Alineado al borde derecho */
   bottom: 100%;
   /* Encima del elemento */
-
   transform: translateX(7px) translateY(-20px);
   /* Ajuste fino de posición del tooltip */
   font-size: 12px;
@@ -799,7 +755,6 @@ body.menu-open .sticky-footer {
   /* Fondo oscuro semitransparente */
   color: rgba(255, 255, 255, 0.75);
   /* Texto claro */
-
   opacity: 0;
   /* Oculto por defecto */
   pointer-events: none;
@@ -816,7 +771,7 @@ body.menu-open .sticky-footer {
 }
 
 /* =====================================================
-   RESPONSIVE
+   RESPONSIVE — MÓVIL
    ===================================================== */
 
 @media (max-width: 975px) {
@@ -832,8 +787,6 @@ body.menu-open .sticky-footer {
     /* Muestra botón hamburguesa en móviles */
   }
 
-  
-
   #header {
     left: 15px;
     /* Separación desde el borde izquierdo reducida para móviles */
@@ -846,13 +799,7 @@ body.menu-open .sticky-footer {
     /* Separación desde el borde izquierdo reducida para móviles */
     right: 15px;
     /* Separación desde el borde derecho reducida para móviles */
-
   }
-
- 
-
-
- 
 
   #copyright {
     display: flex;
@@ -873,21 +820,19 @@ body.menu-open .sticky-footer {
     /* Separación desde el borde derecho reducida para móviles */
   }
 
-#text-img{  
-  display: none;
-}
-#text-img-responsive{
+  #text-img {
+    display: none;
+    /* Oculta imagen de escritorio en móviles */
+  }
 
-  display: flex;
- 
-}
-
-
-
+  #text-img-responsive {
+    display: flex;
+    /* Muestra imagen responsive en móviles */
+  }
 }
 
 /* =====================================================
-   DESKTOP
+   RESPONSIVE — DESKTOP
    ===================================================== */
 
 @media (min-width: 976px) {
@@ -908,4 +853,76 @@ body.menu-open .sticky-footer {
     white-space: nowrap;
     /* Evita que el texto se divida en varias líneas */
   }
+}
+
+/* =====================================================
+   SCROLL LAYER
+   ===================================================== */
+
+#scroll-layer {
+  position: fixed;
+  /* Posicionamiento fijo respecto al viewport */
+  top: 95px;
+  /* Debajo del header: top (15px) + height (64px) + aire (16px) */
+  bottom: 60px;
+  /* Encima del footer: height (44px) + aire (16px) */
+  left: 0;
+  /* Alineado al borde izquierdo */
+  right: 0;
+  /* Alineado al borde derecho */
+  overflow-y: auto;
+  /* Permite scroll vertical */
+  -webkit-overflow-scrolling: touch;
+  /* Scroll suave en iOS */
+  z-index: 1;
+  /* Crea su propio stacking context sin afectar header/footer */
+}
+
+/* =====================================================
+   SCROLL FIX — CONTENIDO DENTRO DE scroll-layer
+   ===================================================== */
+
+#scroll-layer #hero-container {
+  position: relative;
+  /* Cambia de fijo a relativo para fluir en el scroll */
+  top: 0px;
+  /* Mantiene posición visual original */
+}
+
+#scroll-layer #hero-subtitle {
+  position: relative;
+  display: inline;
+  justify-content: center;
+  align-items: center;
+
+  width: 90%;
+  /* Cambia de fijo a relativo para fluir en el scroll */
+}
+
+#scroll-layer #form-container {
+  position: relative;
+  /* Cambia de fijo a relativo para fluir en el scroll */
+  top: 0px;
+  /* Mantiene posición visual original */
+  left: 50%;
+  /* Centra horizontalmente */
+  transform: translateX(-50%);
+  /* Ajusta el centrado */
+}
+
+#scroll-layer #form_subtitle {
+  position: absolute;
+  /* Posicionamiento absoluto respecto al form */
+ top:126px;
+  /* Debajo del formulario */
+  left: 50%;
+  /* Centra horizontalmente */
+  transform: translateX(-50%);
+  /* Ajusta el centrado */
+}
+
+#scroll-layer #text-container,
+#scroll-layer #final-text-container {
+  position: relative;
+  /* Posicionamiento relativo para fluir normalmente */
 }
