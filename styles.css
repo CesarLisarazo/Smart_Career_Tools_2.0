@@ -70,26 +70,9 @@ body.menu-open {
   /* Evita el scroll en el body cuando el menú móvil está abierto */
 }
 
-body.menu-open #form-container,
-body.menu-open .ml-embedded,
-body.menu-open #form_subtitle {
-  pointer-events: none;
-  opacity: 0;
-}
-body.menu-open {
-  overflow: hidden;
-  /* Evita el scroll en el body cuando el menú móvil está abierto */
-}
 
-body.menu-open #form-container,
-body.menu-open .ml-embedded,
-body.menu-open #form_subtitle
- {
-  pointer-events: none;
-  /* Desactiva la interacción con el formulario cuando el menú está abierto */
-  opacity: 0;
-  /* Oculta visualmente el formulario cuando el menú está abierto */
-}
+
+
 body {
   opacity: 0;
   transition: opacity 0.6s ease;
@@ -311,14 +294,13 @@ transform: scale(0.8);  /* Altura de la imagen relativa al contenedor padre */
    ===================================================== */
 
 #mobile-menu {
-  position: absolute;
-  /* Posicionamiento absoluto respecto al header */
-  top: calc(100% + 8px);
-  /* Se ubica justo debajo del header + 8px de espacio */
-  left: 12px;
-  /* Margen izquierdo */
-  right: 12px;
-  /* Margen derecho */
+  
+  position: fixed;
+  top: 90px; /* Ajustá si hace falta */
+  left: 15px;
+  right: 15px;
+  z-index: 9999;
+
   background: linear-gradient(to top right, #dfdfe9, #e5e8f6);
   /* Fondo degradado */
   padding: 8px 0;
@@ -327,7 +309,7 @@ transform: scale(0.8);  /* Altura de la imagen relativa al contenedor padre */
   /* Bordes muy redondeados */
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   /* Sombra pronunciada */
-  z-index: 60;
+  
   /* Capa superior (encima del overlay) */
   display: flex;
   /* Flexbox para lista vertical */
