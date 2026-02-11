@@ -844,7 +844,7 @@ body.menu-open .sticky-footer {
    RESPONSIVE — DESKTOP
    ===================================================== */
 
-@media (min-width: 976px) {
+@media (min-width: 1060px) {
   /* Media query para pantallas de 976px o más (escritorio) */
 
   .footer-content {
