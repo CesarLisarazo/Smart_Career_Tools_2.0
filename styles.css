@@ -782,7 +782,7 @@ body.menu-open .sticky-footer {
    RESPONSIVE — MÓVIL
    ===================================================== */
 
-@media (max-width: 975px) {
+@media (max-width: 1060px) {
   /* Media query para pantallas de 975px o menos (tablets y móviles) */
 
   #nav {
