@@ -134,13 +134,12 @@ body.menu-open #form_subtitle
   /* Distribuye espacio entre el logo y la navegación */
 }
 
-#main-logo {
+#logo-link {
   display: flex;
-  /* Flexbox para alinear imagen y texto del logo */
   align-items: center;
-  /* Centra verticalmente */
   gap: 10px;
-  /* Espacio entre la imagen y el texto */
+  text-decoration: none;
+  color: black;
 }
 
 #main-logo a {
@@ -151,8 +150,7 @@ body.menu-open #form_subtitle
 }
 
 #logo {
-  height: 65%;
-  /* Altura de la imagen relativa al contenedor padre */
+transform: scale(0.8);  /* Altura de la imagen relativa al contenedor padre */
 }
 
 #title {
