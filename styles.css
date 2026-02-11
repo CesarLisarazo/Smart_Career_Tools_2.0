@@ -83,8 +83,7 @@ body.menu-open {
 
 body.menu-open #form-container,
 body.menu-open .ml-embedded,
-body.menu-open #form_subtitle,
-body.menu-open #scroll-layer 
+body.menu-open #form_subtitle
  {
   pointer-events: none;
   /* Desactiva la interacción con el formulario cuando el menú está abierto */
