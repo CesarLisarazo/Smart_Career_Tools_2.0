@@ -921,7 +921,7 @@ body.menu-open .sticky-footer {
 #scroll-layer #form_subtitle {
   position: absolute;
   /* Posicionamiento absoluto respecto al form */
- top:177px;
+ top:128px;
   /* Debajo del formulario */
   left: 50%;
   /* Centra horizontalmente */
