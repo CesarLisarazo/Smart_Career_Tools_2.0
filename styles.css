@@ -420,19 +420,29 @@ color:#f8fafc;  /* Color oscuro para el título principal */
   /* Tamaño de fuente del título */
   transform: scaleY(0.95);
   /* Comprime ligeramente el texto verticalmente para un efecto visual */
+
+margin-top: 0px;
  
 }
 
 #hero-subtitle {
   position: fixed;
+  
   /* Fija el subtítulo en una posición específica */
- color:#f8fafc; 
-  /* Color del subtítulo */
-  font-size: 15px;
-  /* Tamaño de fuente del subtítulo */
-  font-weight: 400;
-  /* Grosor de fuente normal */
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #f9f9fd;
+  /* Color claro para el título del texto */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* Tipografía serif elegante */
+  font-weight: lighter;
+  /* Grosor de fuente medio */
+  text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
+  /* Sombra de texto muy sutil */
+  font-size: 17px;
+  /* Tamaño de fuente del título */
+
+  text-align: center;
+  transform: scaleY(0.95);
+  /* Comprime ligeramente el texto verticalmente para un efecto visual */
   /* Tipografía sans-serif moderna */
 
 
@@ -792,6 +802,7 @@ body.menu-open .sticky-footer {
     left: 15px;
     /* Separación desde el borde izquierdo reducida para móviles */
     right: 15px;
+    width: 90%;
     /* Separación desde el borde derecho reducida para móviles */
   }
 
@@ -880,17 +891,20 @@ body.menu-open .sticky-footer {
   position: relative;
   /* Cambia de fijo a relativo para fluir en el scroll */
   top: 0px;
+  
+  
   /* Mantiene posición visual original */
 }
 
 #scroll-layer #hero-subtitle {
   position: relative;
-  display: inline;
+
   justify-content: center;
   align-items: center;
 
   width: 90%;
   /* Cambia de fijo a relativo para fluir en el scroll */
+  top: -30px;
 }
 
 #scroll-layer #form-container {
@@ -907,7 +921,7 @@ body.menu-open .sticky-footer {
 #scroll-layer #form_subtitle {
   position: absolute;
   /* Posicionamiento absoluto respecto al form */
- top:126px;
+ top:177px;
   /* Debajo del formulario */
   left: 50%;
   /* Centra horizontalmente */
