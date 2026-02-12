@@ -49,6 +49,8 @@ function initMenu() {
   }
 
   function openMenu() {
+    overlay.style.display = "";
+mobileMenu.style.display = "";
     mobileMenu.classList.add("open");
     overlay.classList.add("open");
     document.body.classList.add("menu-open");
@@ -62,6 +64,8 @@ function initMenu() {
     document.body.classList.remove("menu-open");
     hamburgerButton.classList.remove("open");
     hamburgerButton.setAttribute("aria-expanded", "false");
+    overlay.style.display = "none";
+mobileMenu.style.display = "none";
   }
 
   hamburgerButton.addEventListener("click", (e) => {
@@ -71,9 +75,22 @@ function initMenu() {
 
   overlay.addEventListener("click", closeMenu);
 
- mobileMenu.querySelectorAll("a").forEach(link => {
+document.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
-    closeMenu();
+    if (document.body.classList.contains("menu-open")) {
+      const mobileMenu = document.getElementById("mobile-menu");
+      const overlay = document.getElementById("menu-overlay");
+      const hamburgerButton = document.getElementById("hamburger-button");
+
+      mobileMenu?.classList.remove("open");
+      overlay?.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      hamburgerButton?.classList.remove("open");
+
+      // Forzar desaparición inmediata
+      if (overlay) overlay.style.display = "none";
+      if (mobileMenu) mobileMenu.style.display = "none";
+    }
   });
 });
 
@@ -249,4 +266,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initPageLoadControl();
 
+});
+
+
+
+
+window.addEventListener("beforeunload", () => {
+  document.body.classList.remove("menu-open");
 });
