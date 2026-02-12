@@ -149,16 +149,22 @@ transform: scale(0.8);  /* Altura de la imagen relativa al contenedor padre */
   font-weight: 500;
   /* Grosor de fuente medio */
 }
+#nav {
+  
+  display: flex;
+
+  /* Activa Flexbox para alinear elementos */}
 
 #nav a {
-  margin-right: 24px;
+  margin-right: 12px;
   /* Espacio a la derecha de cada enlace */
   text-decoration: none;
   /* Quita el subrayado */
   color: var(--text);
   /* Usa el color de texto definido en variables */
   font-weight: 500;
-  /* Grosor de fuente medio */
+ 
+  
 }
 
 /* =====================================================
@@ -973,10 +979,13 @@ body.is-navigating #menu-overlay {
 
 
 /* =====================================================
-   ESTILO DE BLOG
+   estilos blogs
    ===================================================== */
 
-.blog-title{
-color:#f9f9fd; 
-  text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;padding-top: 20px ; margin-top: -70px
-}
+   .blog-title{
+    color:#f9f9fd;
+    text-align: center; font-family: 'cambria';padding-top: 20px ; margin-top: -70px;
+   }
+
+   .blog-text{   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: medium;font-size: 17px;text-shadow: 0.5px 0.5px 0.5px #1f283f;transform: scaleY(0.95); margin-top: -60px;
+   }
