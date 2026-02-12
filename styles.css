@@ -963,4 +963,10 @@ Para Firefox
 }
 
 
-
+/*desactivar transiciones cuando se navega*/
+body.is-navigating #hamburger-button,
+body.is-navigating #hamburger-button span,
+body.is-navigating #mobile-menu,
+body.is-navigating #menu-overlay {
+  transition: none !important;
+}

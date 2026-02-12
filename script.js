@@ -74,10 +74,12 @@ mobileMenu.style.display = "none";
   });
 
   overlay.addEventListener("click", closeMenu);
-
 document.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     if (document.body.classList.contains("menu-open")) {
+
+      document.body.classList.add("is-navigating");
+
       const mobileMenu = document.getElementById("mobile-menu");
       const overlay = document.getElementById("menu-overlay");
       const hamburgerButton = document.getElementById("hamburger-button");
@@ -86,10 +88,6 @@ document.querySelectorAll("a").forEach(link => {
       overlay?.classList.remove("open");
       document.body.classList.remove("menu-open");
       hamburgerButton?.classList.remove("open");
-
-      // Forzar desaparición inmediata
-      if (overlay) overlay.style.display = "none";
-      if (mobileMenu) mobileMenu.style.display = "none";
     }
   });
 });
