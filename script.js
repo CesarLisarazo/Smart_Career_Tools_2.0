@@ -136,7 +136,7 @@ function initContactToggle() {
       setTimeout(() => {
 
         if (!clipboardIconShown) {
-          textEl.textContent = email + " 🗐";
+          textEl.textContent = email + " 📋";
           clipboardIconShown = true;
         } else {
           textEl.textContent = email;
