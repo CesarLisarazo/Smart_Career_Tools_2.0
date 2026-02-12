@@ -136,10 +136,23 @@ function initContactToggle() {
       setTimeout(() => {
 
         if (!clipboardIconShown) {
-          textEl.textContent = email + " 📋";
+
+         textEl.innerHTML = `
+  <span style="display:inline-flex; align-items:center; gap:4px;">
+    ${email}
+    <img src="/img/iconos/portapapeles.png"
+         alt="Copiar"
+         style="width:17px; transform:translateY(1px);">
+  </span>
+`;
+
+
           clipboardIconShown = true;
+
         } else {
+
           textEl.textContent = email;
+
         }
 
         textEl.classList.remove("is-fading");
