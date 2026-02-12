@@ -328,7 +328,7 @@ transform: scale(0.8);  /* Altura de la imagen relativa al contenedor padre */
   /* Desplazado ligeramente hacia arriba */
   pointer-events: none;
   /* No interactuable cuando está oculto */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
   /* Animación suave de aparición */
 }
 
