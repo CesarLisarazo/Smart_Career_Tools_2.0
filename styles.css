@@ -323,20 +323,21 @@ transform: scale(0.8);  /* Altura de la imagen relativa al contenedor padre */
   /* Dirección vertical */
   opacity: 0;
   /* Invisible inicialmente */
-  transform: translateY(-10px);
+  transform: translateY(-10px) scaleY(0);
+  transform-origin: top;
   /* Desplazado ligeramente hacia arriba */
   pointer-events: none;
   /* No interactuable cuando está oculto */
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   /* Animación suave de aparición */
 }
 
 #mobile-menu.open {
   opacity: 1;
   /* Totalmente visible */
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   /* Posición original */
-  transform-origin: bottom;
+  transform-origin: top;
   /* Punto de origen de la transformación en la parte inferior */
   pointer-events: auto;
   /* Interactuable */
@@ -999,4 +1000,10 @@ body.is-navigating #menu-overlay {
   width: 17px;
   transform:translateY(2px);
   margin-right: 10px;
+}
+
+.clipboard-icon {
+  width: 17px;
+  transform: translateY(2px);
+  margin-left: 6px;
 }
