@@ -186,24 +186,29 @@ function initPageLoadControl() {
     document.body.classList.add("page-loaded");
   }
 
-  // Si NO hay formulario en esta página → mostrar inmediatamente
+  // Si no hay formulario → mostrar inmediatamente
   if (!formContainer) {
     showPage();
     return;
   }
 
-  // Si hay formulario → esperar a que cargue
   const observer = new MutationObserver((mutations, obs) => {
-    if (formContainer.children.length > 0) {
+
+    // Esperar a que exista el iframe o contenido real
+    const iframe = formContainer.querySelector("iframe");
+    const realContent = formContainer.querySelector(".ml-form-embedContent");
+
+    if (iframe || realContent) {
       showPage();
       obs.disconnect();
     }
+
   });
 
-  observer.observe(formContainer, { childList: true });
+  observer.observe(formContainer, { childList: true, subtree: true });
 
-  // Fallback por seguridad (solo si hay formulario)
-  setTimeout(showPage, 3000);
+  // Fallback más corto y elegante
+  setTimeout(showPage, 4000);
 }
 
 
