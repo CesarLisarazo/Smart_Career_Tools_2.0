@@ -970,3 +970,13 @@ body.is-navigating #mobile-menu,
 body.is-navigating #menu-overlay {
   transition: none !important;
 }
+
+
+/* =====================================================
+   ESTILO DE BLOG
+   ===================================================== */
+
+.blog-title{
+color:#f9f9fd; 
+  text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;padding-top: 20px ; margin-top: -70px
+}
