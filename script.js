@@ -279,3 +279,4 @@ document.addEventListener("DOMContentLoaded", function () {
 window.addEventListener("beforeunload", () => {
   document.body.classList.remove("menu-open");
 });
+
