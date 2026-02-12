@@ -48,25 +48,22 @@ function initMenu() {
     return;
   }
 
-  function openMenu() {
-    overlay.style.display = "";
-mobileMenu.style.display = "";
-    mobileMenu.classList.add("open");
-    overlay.classList.add("open");
-    document.body.classList.add("menu-open");
-    hamburgerButton.classList.add("open");
-    hamburgerButton.setAttribute("aria-expanded", "true");
-  }
+function openMenu() {
+  mobileMenu.classList.add("open");
+  overlay.classList.add("open");
+  document.body.classList.add("menu-open");
+  hamburgerButton.classList.add("open");
+  hamburgerButton.setAttribute("aria-expanded", "true");
+}
 
-  function closeMenu() {
-    mobileMenu.classList.remove("open");
-    overlay.classList.remove("open");
-    document.body.classList.remove("menu-open");
-    hamburgerButton.classList.remove("open");
-    hamburgerButton.setAttribute("aria-expanded", "false");
-    overlay.style.display = "none";
-mobileMenu.style.display = "none";
-  }
+function closeMenu() {
+  mobileMenu.classList.remove("open");
+  overlay.classList.remove("open");
+  document.body.classList.remove("menu-open");
+  hamburgerButton.classList.remove("open");
+  hamburgerButton.setAttribute("aria-expanded", "false");
+}
+
 
   hamburgerButton.addEventListener("click", (e) => {
     e.stopPropagation();
