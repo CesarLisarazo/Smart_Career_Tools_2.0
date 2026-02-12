@@ -224,16 +224,25 @@ function initPageLoadControl() {
 
   const observer = new MutationObserver((mutations, obs) => {
 
-    // Esperar a que exista el iframe o contenido real
     const iframe = formContainer.querySelector("iframe");
-    const realContent = formContainer.querySelector(".ml-form-embedContent");
 
-    if (iframe || realContent) {
-      showPage();
+    if (iframe) {
+
+      // Esperar a que el iframe termine de cargar completamente
+      iframe.addEventListener("load", () => {
+        showPage();
+      });
+
       obs.disconnect();
     }
 
   });
+
+  observer.observe(formContainer, { childList: true, subtree: true });
+
+  // Fallback por seguridad (por si el load no dispara)
+  setTimeout(showPage, 5000);
+}
 
   observer.observe(formContainer, { childList: true, subtree: true });
 
