@@ -989,3 +989,14 @@ body.is-navigating #menu-overlay {
 
    .blog-text{   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: medium;font-size: 17px;text-shadow: 0.5px 0.5px 0.5px #1f283f;transform: scaleY(0.95); margin-top: -60px;
    }
+
+
+   /* =====================================================
+   estilos iconos 
+   ===================================================== */
+.icon-mobile{
+  
+  width: 17px;
+  transform:translateY(2px);
+  margin-right: 10px;
+}
