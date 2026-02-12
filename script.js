@@ -215,7 +215,7 @@ function initPageLoadControl() {
     document.body.classList.add("page-loaded");
   }
 
-  // Si no hay formulario → mostrar inmediatamente
+  // Si no hay formulario → mostrar inmediato
   if (!formContainer) {
     showPage();
     return;
@@ -223,15 +223,10 @@ function initPageLoadControl() {
 
   const observer = new MutationObserver((mutations, obs) => {
 
-    const iframe = formContainer.querySelector("iframe");
+    const emailInput = formContainer.querySelector("input[type='email']");
 
-    if (iframe) {
-
-      // Esperar a que el iframe termine de cargar completamente
-      iframe.addEventListener("load", () => {
-        showPage();
-      });
-
+    if (emailInput && emailInput.placeholder && emailInput.placeholder.length > 0) {
+      showPage();
       obs.disconnect();
     }
 
@@ -239,7 +234,7 @@ function initPageLoadControl() {
 
   observer.observe(formContainer, { childList: true, subtree: true });
 
-  // Fallback por seguridad (por si el load no dispara)
+  // Fallback por seguridad
   setTimeout(showPage, 5000);
 }
 
