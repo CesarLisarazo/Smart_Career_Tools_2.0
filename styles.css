@@ -291,7 +291,7 @@ transform: scale(0.8);  /* Altura de la imagen relativa al contenedor padre */
   /* Se expande verticalmente */
   transform-origin: top;
   /* Punto de origen de la transformación en la parte superior */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
   /* Animación combinada de opacidad y estiramiento */
 }
 
