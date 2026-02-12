@@ -207,7 +207,6 @@ ml('account', '2060315');
 // =====================================================
 // 🔹 5. CONTROL DE CARGA (Fade in cuando carga formulario)
 // =====================================================
-
 function initPageLoadControl() {
 
   const formContainer = document.querySelector(".ml-embedded");
@@ -242,12 +241,6 @@ function initPageLoadControl() {
 
   // Fallback por seguridad (por si el load no dispara)
   setTimeout(showPage, 5000);
-}
-
-  observer.observe(formContainer, { childList: true, subtree: true });
-
-  // Fallback más corto y elegante
-  setTimeout(showPage, 4000);
 }
 
 
