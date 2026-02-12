@@ -212,3 +212,20 @@ if (formContainer) {
 
 // Fallback: si algo falla, mostrar igual después de 3 segundos
 setTimeout(showPage, 3000);
+
+
+// ================= CARGAR COMPONENTES REUTILIZABLES =================
+
+function loadComponent(id, file) {
+  fetch(file)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById(id).innerHTML = data;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  loadComponent("header-container", "/components/header.html");
+  loadComponent("footer-container", "/components/footer.html");
+  loadComponent("movile-menu-container", "/components/mobile-menu.html");
+});
