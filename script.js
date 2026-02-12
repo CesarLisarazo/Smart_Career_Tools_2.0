@@ -71,16 +71,29 @@ function initMenu() {
 
   overlay.addEventListener("click", closeMenu);
 
-  mobileMenu.addEventListener("click", (e) => {
-    if (e.target.tagName === "A") closeMenu();
+ mobileMenu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    closeMenu();
   });
+});
+
+
+document.querySelectorAll("#header a").forEach(link => {
+  link.addEventListener("click", () => {
+    if (mobileMenu.classList.contains("open")) {
+      closeMenu();
+    }
+  });
+});
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
 }
 
-
+window.addEventListener("beforeunload", () => {
+  document.body.classList.remove("menu-open");
+});
 
 // =====================================================
 // 🔹 3. CONTACT TOGGLE (Email reveal + copy)
