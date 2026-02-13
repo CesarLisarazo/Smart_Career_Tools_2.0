@@ -142,7 +142,7 @@ function initContactToggle() {
     ${email}
     <img src="/img/iconos/portapapeles2.gif"
          alt="Copiar"
-         style="width:20px; transform:translateY(1px);">
+         style="width:16px; transform:translateY(1px);">
   </span>
 `;
 
