@@ -991,6 +991,22 @@ body.is-navigating #menu-overlay {
    .blog-text{   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: medium;font-size: 17px;text-shadow: 0.5px 0.5px 0.5px #1f283f;transform: scaleY(0.95); margin-top: -60px;
    }
 
+.blog-index {
+  
+  text-align: center;
+  color: #f9f9fd;
+  /* Color claro para el título del texto */
+  /* Tipografía serif elegante */
+  font-weight: medium;
+  /* Grosor de fuente medio */
+  text-shadow: 0.5px 0.5px 0.5px #1f283f1c;
+  /* Sombra de texto muy sutil */
+  font-size: 17px;
+  /* Tamaño de fuente del título */
+  transform: scaleY(0.95);
+  /* Comprime ligeramente el texto verticalmente para un efecto visual */
+}
+
 
    /* =====================================================
    estilos iconos 
@@ -1007,4 +1023,3 @@ body.is-navigating #menu-overlay {
   transform: translateY(2px);
   margin-left: 6px;
 }
-
