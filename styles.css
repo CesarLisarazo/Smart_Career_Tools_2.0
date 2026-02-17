@@ -405,6 +405,7 @@ transform: scale(0.8);  /* Altura de la imagen relativa al contenedor padre */
    ===================================================== */
 
 #hero-title {
+ 
 color:#f8fafc;  /* Color oscuro para el título principal */
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   /* Tipografía serif elegante */
@@ -449,6 +450,7 @@ margin-top: 0px;
    ===================================================== */
 
 #form-container {
+  
   position: fixed;
   /* Fija el formulario en una posición específica de la ventana */
   top: 260px;
@@ -500,10 +502,10 @@ margin-top: 0px;
    ===================================================== */
 
 #text-container {
-
+margin-top: -25px;
   position: relative;
   /* Posicionamiento relativo - NO fixed, para que pueda scrollear normalmente */
- 
+
   /* Margen superior calculado para que comience debajo de todos los elementos fijos */
   /* 76px (header top) + 350px (hero height) + 200px (espacio para form y subtitle) */
   display: flex;
@@ -520,6 +522,7 @@ margin-top: 0px;
 
 #text-container-title {
   
+ 
   text-align: center;
   color: #f9f9fd;
   /* Color claro para el título del texto */
@@ -537,6 +540,7 @@ margin-top: 0px;
 
 #text-container-subtitle {
   color: #f9f9fd;
+
   /* Color claro para el título del texto */
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   /* Tipografía serif elegante */
@@ -955,7 +959,7 @@ Para Firefox
 #scroll-layer #form_subtitle {
   position: absolute;
   /* Posicionamiento absoluto respecto al form */
- top:128px;
+ top:205px;
   /* Debajo del formulario */
   left: 50%;
   /* Centra horizontalmente */
