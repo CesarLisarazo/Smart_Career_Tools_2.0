@@ -1061,7 +1061,7 @@ body.is-navigating #menu-overlay {
     border-radius: 16px;
     padding: 24px 22px;
     color: #fff;
-    background: linear-gradient(to top right, #22283d 0%, #090f25 100%);
+    background: linear-gradient(to top right, #2e3651 0%, #182142 100%);
     box-shadow: 0 20px 60px rgba(0,0,0,.45);
 
     transform: translateY(8px);
