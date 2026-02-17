@@ -280,3 +280,29 @@ window.addEventListener("beforeunload", () => {
   document.body.classList.remove("menu-open");
 });
 
+/*-----------------------modal-------------------*/
+const img = document.getElementById('text-img-responsive');
+  const modal = document.getElementById('infoModal');
+  const modalContent = modal.querySelector('.modal-content');
+
+  function openModal(){
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  img.addEventListener('click', openModal);
+
+  // Cierra al hacer click por fuera del contenido
+  modal.addEventListener('click', (e) => {
+    if (!modalContent.contains(e.target)) closeModal();
+  });
+
+  // (Opcional) Cerrar con Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });

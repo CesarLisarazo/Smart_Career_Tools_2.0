@@ -1032,3 +1032,54 @@ body.is-navigating #menu-overlay {
 
 .bullet{
    margin-left: -10px; font-family: 'Courier New', Courier, monospace; font-size: 6px;display:flex; transform: translateY(14px);}
+
+
+  .modal-overlay{
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(0,0,0,.55);
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease, visibility .2s ease;
+  }
+
+  /* Estado abierto */
+  .modal-overlay.is-open{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Contenido */
+  .modal-content{
+    width: min(720px, 100%);
+    border-radius: 16px;
+    padding: 24px 22px;
+    color: #fff;
+    background: linear-gradient(to top right, #22283d 0%, #090f25 100%);
+    box-shadow: 0 20px 60px rgba(0,0,0,.45);
+
+    transform: translateY(8px);
+    transition: transform .2s ease, opacity .2s ease;
+    opacity: 0;
+  }
+
+  .modal-overlay.is-open .modal-content{
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .modal-text p{
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 12px 0;
+    line-height: 1.45;
+  }
+
+  #text-img-responsive{
+    cursor: pointer;
+  }
