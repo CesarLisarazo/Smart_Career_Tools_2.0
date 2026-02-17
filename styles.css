@@ -240,7 +240,7 @@ transform: scale(0.8);  /* Altura de la imagen relativa al contenedor padre */
   /* Invisible cuando el menú está abierto */
   transform: scaleY(0);
   /* Se comprime verticalmente hasta desaparecer */
-  transform-origin: top;
+  transform-origin: bottom;
   /* Punto de origen de la transformación en la parte superior */
   transition: opacity 0.3s ease, transform 0.3s ease;
   /* Animación combinada de opacidad y estiramiento */
