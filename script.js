@@ -140,9 +140,9 @@ function initContactToggle() {
          textEl.innerHTML = `
   <span style="display:inline-flex; align-items:center; gap:4px;">
     ${email}
-    <img src="/img/iconos/portapapeles2.gif"
+    <img src="/img/iconos/portapapeles.gif"
          alt="Copiar"
-         style="width:14px; transform:translateY(1px); margin-left:4px;">
+         style="width:14px; transform:translateY(-1px); margin-left:2px;">
   </span>
 `;
 
