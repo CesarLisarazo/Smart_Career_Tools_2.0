@@ -1,48 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Career Tools Blogs</title>
-      <link rel="stylesheet" href="/styles.css">
+  <meta charset="UTF-8">
+  <title>Blog - Smart Career Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- ================= HEADER ================= -->
-<div id="header-container"></div>
 
+  <!-- HEADER -->
+  <div id="header-container"></div>
 
-<!-- ================= SCROLL ================= -->
-<div id="scroll-layer">
-
-<h1  class="blog-title"style="margin-top: 80px;"> Smart Career Blogs</h1>
-<ol style="
-  display: flex;
-  justify-content: center;
-
-  margin: 0 20px;
-  padding: 0;
-  list-style: none;
-">
-  <li style="color:#f9f9fd; text-align: center;">
-    <a class="blog-index"  href="/blog/como-funcionan-los-ats-en-2026/">01: Como funcionan los ATS en 2026</a><br><br>
-    <a class="blog-index"  href="/blog/15-errores-que-te-descartan/">02: 15 Errores que Hacen que tu CV Sea Descartado Automáticamente por los Sistemas ATS</a>
+  <!-- MAIN CONTENT -->
+  <main style="flex: 1; display: flex; flex-direction: column;">
     
-  </li>
+    <header class="page-header reveal">
+      <h1>Nuestro Blog</h1>
+      <p>Artículos, guías y estrategias de expertos para dominar los sistemas ATS y destacar en tu búsqueda laboral.</p>
+    </header>
 
-</ol>
+    <section class="container reveal" style="padding: 0 24px;">
+      <div class="blog-grid">
+        
+        <!-- Post 1 -->
+        <a href="/blog/como-funcionan-los-ats-en-2026/" class="blog-card">
+          <div class="blog-card-content">
+            <span class="blog-meta">Guía Fundamental</span>
+            <h2>Cómo funcionan los ATS en 2026: el sistema que filtra tu CV</h2>
+            <p>Descubre los secretos técnicos detrás de los algoritmos que las empresas Fortune 500 usan para descartar candidatos antes de la entrevista.</p>
+            <div class="blog-read-more">Leer artículo →</div>
+          </div>
+        </a>
 
-</div>
+        <!-- Post 2 -->
+        <a href="/blog/15-errores-que-te-descartan/" class="blog-card">
+          <div class="blog-card-content">
+            <span class="blog-meta">Checklist</span>
+            <h2>15 Errores que Hacen que tu CV Sea Descartado Automáticamente</h2>
+            <p>Conoce los fallos estructurales, de formato y de contenido que impiden que los sistemas de recursos humanos lean tu currículum.</p>
+            <div class="blog-read-more">Leer artículo →</div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER & MENU -->
   <div id="footer-container"></div>
   <div id="mobile-menu-container"></div>
-
-
 
   <script src="/script.js"></script>
 </body>
 </html>
-

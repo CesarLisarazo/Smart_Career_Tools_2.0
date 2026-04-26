@@ -2,126 +2,132 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Smart Career Tools</title>
+  <title>Smart Career Tools - Domina el Algoritmo ATS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="styles.css">
-<link rel="icon" type="image/png" href="/img/logo.png">
-  <!-- Google Font -->
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  
+  <!-- Google Font: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-    <link rel="preload" as="image" href="/img/iconos/portapapeles.gif">
-     <link rel="preload" as="image" href="/img/iconos/portapapeles2.gif">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- MailerLite Script (Mantenido) -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};l=d.createElement(e);l.async=1;l.src=u;n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2060315');
+  </script>
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <div id="header-container"></div>
-
-  <!-- ================= SCROLL ================= -->
-  <div id="scroll-layer">
-
-    <!-- ================= HERO ================= -->
-    <div id="hero-container">
-      <h2 id="hero-title">Tu CV no falla. <br>El sistema sí.</h2> 
-     
-
-
-    </div>
-
-    <!-- ================= FORM ================= -->
-    
-    <!-- ================= TEXT ================= -->
-    <div id="text-container">
+  <!-- HEADER -->
+  <header id="header">
+    <div id="nav-container">
+      <a href="/index.html" id="logo-link">
+        <img id="logo" src="/img/logo.png" alt="Smart Career Tools logo">
+        <h1 id="title">Smart Career Tools</h1>
+      </a>
       
-      <p id="text-container-title">
-        El 75% de los CVs nunca llega a RRHH.<br>
-        No por falta de talento o experiencia,<br>
-        sino por reglas invisibles.
-      </p>
-      
-      <div id="text-img-container">
-        <img id="text-img" src="./img/text-img.png"
-        alt="Formato incompatible, Palabras mal interpretadas, Lectura incorrecta">
-        <img id="text-img-responsive" src="./img/recuadros copy.png"
-        alt="Formato incompatible, Palabras mal interpretadas, Lectura incorrecta">
-        <!-- Modal -->
-<!-- Modal -->
-<div id="infoModal" class="modal-overlay" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true">
-    <div class="modal-text">
-      <p style="text-align: center;"><strong>ERRORES MÁS COMUNES EN UN CV</strong><br><br>
-      <p><strong>- FORMATO INCOMPATIBLE:</strong><br>
-       Algunos diseños hacen que el sistema no pueda leer tu CV correctamente y omita información importante.</p>
+      <nav id="nav">
+        <a href="/descargas/">Descargas</a>
+        <a href="/blog/">Blogs</a>
+        <a href="https://sheetsresumecom.sjv.io/DyDLMq">Escanea tu CV</a>
+        <a href="https://sheetsresume.com/r/smart-career-tools" class="primary-btn" target="_blank" rel="noopener noreferrer">Crea tu CV</a>
+      </nav>
 
-      <p><strong>- PALABRAS CLAVE MAL INTERPRETADAS:</strong><br>
-        Si no usás las palabras adecuadas, el sistema puede no detectar tus habilidades o experiencia.</p>
-
-      <p><strong>- LECTURA SEMÁNTICA INCORRECTA:</strong><br>
-       Si las descripciones no son claras, el sistema no entiende bien lo que hiciste.</p>
+      <button id="hamburger-button" aria-label="Abrir menú" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="menu-overlay"></div>
+  <div id="mobile-menu">
+    <a href="/index.html">Inicio</a>
+    <a href="https://sheetsresumecom.sjv.io/DyDLMq">Escanea tu CV</a>
+    <a href="/descargas/">Descargas</a>
+    <a href="/blog/">Blogs</a>
+    <a href="https://sheetsresume.com/r/smart-career-tools" class="primary-btn" target="_blank" rel="noopener noreferrer">Crea tu CV</a>
   </div>
-</div>
 
-
-      </div>
-      
-    </div>
-    
-    <div id="final-text-container">
-      <p id ="final-text">Esas y muchas otras reglas tienen nombre: <br><br><strong>ATS (Applicant Tracking System)</strong>.<br><br>
-        
-        Son los sistemas que analizan y filtran tu CV antes de que llegue a Recursos Humanos.<br><br>
-        
-        El 99% de las empresas Fortune 500 utilizan estos algoritmos.<br><br>
-        
-        Si tu CV no está optimizado para superarlos, sos invisible para el sistema.<br><br>
-        
-        Hoy, no alcanza con que tu perfil sea idoneo,<br>
-        tu CV tiene que estar preparado para superar esta barrera.<br><br>
-        
-        <strong>👉 Verificá el tuyo ahora.</strong><br><br>
-         </p> 
+  <!-- HERO SECTION -->
+  <main>
+    <section class="hero reveal">
+      <div class="hero-content">
+        <span class="badge">El Estándar Profesional 2026</span>
+        <h1>Tu CV Perfecto.<br><span>Optimizado para el Éxito.</span></h1>
+        <p>Los sistemas ATS (Applicant Tracking Systems) descartan el 75% de los currículums antes de que un ser humano los vea. Deja de ser invisible y asegura tu próxima entrevista.</p>
+        <div class="hero-buttons">
+          <a href="#soluciones" class="btn btn-primary">Descubrir Soluciones</a>
+          <a href="https://sheetsresumecom.sjv.io/DyDLMq" class="btn btn-secondary">Escanear mi CV Gratis</a>
         </div>
+      </div>
+    </section>
 
-        <div id="form-container" style="margin-top: 15px;">
-           <h3 id="hero-subtitle">
-            Vence al robot: descarga la checklist de 10 puntos Anti-ATS definitiva.
-          </h3>
+    <!-- PROBLEM SECTION -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>¿Por qué las empresas te rechazan sin leerte?</h2>
+          <p>No es falta de talento. Es el formato. Las compañías Fortune 500 usan algoritmos para filtrar candidatos basándose en reglas estrictas.</p>
+        </div>
+        
+        <div class="grid-3">
+          <div class="card reveal-left" style="transition-delay: 0.1s;">
+            <div class="card-icon">✕</div>
+            <h3>Formato Incompatible</h3>
+            <p>El uso de columnas complejas, gráficos o fuentes no estándar impide que el software extraiga tu información correctamente.</p>
+          </div>
+          <div class="card reveal-left" style="transition-delay: 0.3s;">
+            <div class="card-icon">⚲</div>
+            <h3>Falta de Palabras Clave</h3>
+            <p>Si tu perfil no contiene la densidad exacta de términos técnicos solicitados en la vacante, el sistema te descarta automáticamente.</p>
+          </div>
+          <div class="card reveal-left" style="transition-delay: 0.5s;">
+            <div class="card-icon">⚠</div>
+            <h3>Semántica Confusa</h3>
+            <p>Descripciones ambiguas impiden que la inteligencia artificial del ATS categorice correctamente tu experiencia y años de servicio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / MAILERLITE SECTION -->
+    <section id="soluciones" class="container reveal">
+      <div class="cta-section">
+        <div class="cta-content">
+          <h2>Vence al algoritmo hoy mismo</h2>
+          <p>Únete a más de 2,000 profesionales. Descarga nuestra Checklist Definitiva de 10 Puntos Anti-ATS de forma completamente gratuita y asegura tu pase a Recursos Humanos.</p>
+          
           <div class="ml-embedded" data-form="kdTQNh"></div>
-          <span id="form_subtitle">
-            Gratuito ▪ Usado por +2000 profesionales
-          </span>
         </div>
-
-          <div id="final-text-container"> <p id ="final-text">
-       <span class="bullet" >⬤</span> Descargá la Checklist de 10 puntos Anti-ATS y asegurate de que tu CV cumpla con los criterios básicos antes de aplicar, la recibís en PDF a tu casilla de email.<br><br>
-       <span class="bullet">⬤</span> En el menú podés escanear tu CV, conocer tu puntaje ATS y seguir los pasos exactos para mejorarlo.<br><br>
-       <span class="bullet">⬤</span> Si necesitas crear un CV desde cero o desde tu perfil de LinkedIn, podés hacerlo desde el menú con las herramientas de sheetresume.<br><br>
-        <strong>Asegurate de llegar a RRHH.<br>
-          No dejes que te descarten.</strong>
-        </p>
       </div>
+    </section>
+  </main>
 
-
-
-
-
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <a href="/index.html" class="footer-logo">
+        <img src="/img/logo.png" alt="Logo"> Smart Career Tools
+      </a>
       
-  </div>
-  <!-- ================= FIN SCROLL ================= -->
-
-
-  <!-- ================= FOOTER ================= -->
-  
-<div id="footer-container"></div>
-
-  <!-- ================= MENÚ MOBILE (MOVIDO FUERA DEL HEADER) ================= -->
- <div id="mobile-menu-container"> </div>
+      <div class="footer-links">
+        <a href="/descargas/">Descargas</a>
+        <a href="/blog/">Blogs</a>
+        <a href="mailto:cesar@smartcareertools.com">Contacto</a>
+      </div>
+      
+      <div class="copyright">
+        &copy; 2026 Smart Career Tools. Diseñado para impulsar tu carrera.
+      </div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

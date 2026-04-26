@@ -1,308 +1,171 @@
 // =====================================================
-// SMART CAREER TOOLS - SCRIPT GLOBAL
-// Arquitectura modular con componentes reutilizables
+// SMART CAREER TOOLS - SCRIPT GLOBAL (V3)
 // =====================================================
 
-
-
-// =====================================================
-// 🔹 1. CARGAR COMPONENTES REUTILIZABLES
-// =====================================================
-
-function loadComponent(id, file, callback) {
-  const element = document.getElementById(id);
-
-  if (!element) {
-    console.error(`❌ No existe el elemento con id: ${id}`);
-    return;
-  }
-
-  fetch(file)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`Error cargando ${file}`);
-      }
-      return response.text();
-    })
-    .then(data => {
-      element.innerHTML = data;
-      if (callback) callback(); // Ejecuta función después de cargar
-    })
-    .catch(error => console.error(error));
-}
-
-
+document.addEventListener("DOMContentLoaded", () => {
+  initMobileMenu();
+  initScrollReveal();
+  initLegacyComponents();
+  initReadingProgressBar();
+  
+  // Show page after a tiny delay for smooth transition
+  setTimeout(() => {
+    document.body.classList.add("page-loaded");
+  }, 100);
+});
 
 // =====================================================
-// 🔹 2. INICIALIZAR MENÚ (se ejecuta después de cargar header)
+// 1. MOBILE MENU
 // =====================================================
-
-function initMenu() {
-
+function initMobileMenu() {
   const hamburgerButton = document.getElementById("hamburger-button");
   const mobileMenu = document.getElementById("mobile-menu");
   const overlay = document.getElementById("menu-overlay");
 
-  if (!hamburgerButton || !mobileMenu || !overlay) {
-    console.warn("⚠️ Elementos del menú no encontrados.");
-    return;
+  if (!hamburgerButton || !mobileMenu || !overlay) return;
+
+  function toggleMenu() {
+    const isOpen = mobileMenu.classList.contains("open");
+    
+    if (isOpen) {
+      mobileMenu.classList.remove("open");
+      overlay.classList.remove("open");
+      hamburgerButton.classList.remove("open");
+      hamburgerButton.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    } else {
+      mobileMenu.classList.add("open");
+      overlay.classList.add("open");
+      hamburgerButton.classList.add("open");
+      hamburgerButton.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    }
   }
-
-function openMenu() {
-  mobileMenu.classList.add("open");
-  overlay.classList.add("open");
-  document.body.classList.add("menu-open");
-  hamburgerButton.classList.add("open");
-  hamburgerButton.setAttribute("aria-expanded", "true");
-}
-
-function closeMenu() {
-  mobileMenu.classList.remove("open");
-  overlay.classList.remove("open");
-  document.body.classList.remove("menu-open");
-  hamburgerButton.classList.remove("open");
-  hamburgerButton.setAttribute("aria-expanded", "false");
-}
-
 
   hamburgerButton.addEventListener("click", (e) => {
     e.stopPropagation();
-    mobileMenu.classList.contains("open") ? closeMenu() : openMenu();
+    toggleMenu();
   });
 
-  overlay.addEventListener("click", closeMenu);
-document.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    if (document.body.classList.contains("menu-open")) {
+  overlay.addEventListener("click", toggleMenu);
 
-      document.body.classList.add("is-navigating");
-
-      const mobileMenu = document.getElementById("mobile-menu");
-      const overlay = document.getElementById("menu-overlay");
-      const hamburgerButton = document.getElementById("hamburger-button");
-
-      mobileMenu?.classList.remove("open");
-      overlay?.classList.remove("open");
-      document.body.classList.remove("menu-open");
-      hamburgerButton?.classList.remove("open");
-    }
-  });
-});
-
-
-document.querySelectorAll("#header a").forEach(link => {
-  link.addEventListener("click", () => {
-    if (mobileMenu.classList.contains("open")) {
-      closeMenu();
-    }
-  });
-});
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
+  // Close menu when clicking a link
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", toggleMenu);
   });
 }
 
-window.addEventListener("beforeunload", () => {
-  document.body.classList.remove("menu-open");
-});
-
 // =====================================================
-// 🔹 3. CONTACT TOGGLE (Email reveal + copy)
+// 2. SCROLL REVEAL ANIMATIONS
 // =====================================================
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left');
+  
+  if (revealElements.length === 0) return;
 
-function initContactToggle() {
-
-  const contactLink = document.getElementById("contact-toggle");
-  const textEl = contactLink?.querySelector(".contact-text");
-
-  if (!contactLink || !textEl) return;
-
-  const email = "cesar@smartcareertools.com";
-
-  let showingEmail = false;
-  let hintShown = false;
-  let clipboardIconShown = false;
-  let emailCopied = false;
-
-  contactLink.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    // Mostrar email
-    if (!showingEmail) {
-
-      textEl.classList.add("is-fading");
-
-      setTimeout(() => {
-
-        if (!clipboardIconShown) {
-
-         textEl.innerHTML = `
-  <span style="display:inline-flex; align-items:center; gap:4px;">
-    ${email}
-    <img src="/img/iconos/portapapeles.gif"
-         alt="Copiar"
-         style="width:14px; transform:translateY(-1px); margin-left:2px;">
-  </span>
-`;
-
-
-          clipboardIconShown = true;
-
-        } else {
-
-          textEl.textContent = email;
-
-        }
-
-        textEl.classList.remove("is-fading");
-        showingEmail = true;
-
-      }, 150);
-
-      return;
-    }
-
-    // Copiar email
-    if (!emailCopied) {
-
-      navigator.clipboard.writeText(email);
-      emailCopied = true;
-
-      if (!hintShown) {
-
-        hintShown = true;
-        contactLink.classList.add("show-hint");
-
-        setTimeout(() => {
-          contactLink.classList.remove("show-hint");
-        }, 2500);
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
       }
-    }
-
-    // Restaurar texto
-    textEl.classList.add("is-fading");
-
-    setTimeout(() => {
-
-      textEl.textContent = "Contacto";
-      textEl.classList.remove("is-fading");
-      showingEmail = false;
-
-    }, 150);
+    });
+  }, {
+    root: null,
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
   });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+  
+  // Trigger immediately for elements already in viewport
+  setTimeout(() => {
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('active');
+      }
+    });
+  }, 200);
 }
 
-
-
 // =====================================================
-// 🔹 4. MAILERLITE UNIVERSAL SCRIPT
+// 3. LEGACY COMPONENT LOADER (For /blog/ and /descargas/)
 // =====================================================
+function initLegacyComponents() {
+  function loadComponent(id, file, callback) {
+    const element = document.getElementById(id);
+    if (!element) return; // Skip if element doesn't exist on this page
 
-(function(w,d,e,u,f,l,n){
-  w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};
-  l=d.createElement(e);
-  l.async=1;
-  l.src=u;
-  n=d.getElementsByTagName(e)[0];
-  n.parentNode.insertBefore(l,n);
-})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-
-ml('account', '2060315');
-
-
-
-// =====================================================
-// 🔹 5. CONTROL DE CARGA (Fade in cuando carga formulario)
-// =====================================================
-function initPageLoadControl() {
-
-  const formContainer = document.querySelector(".ml-embedded");
-
-  function showPage() {
-    document.body.classList.add("page-loaded");
+    fetch(file)
+      .then(response => response.ok ? response.text() : "")
+      .then(data => {
+        if (data) element.innerHTML = data;
+        if (callback) callback();
+      })
+      .catch(console.error);
   }
 
-  // Si no hay formulario → mostrar inmediato
-  if (!formContainer) {
-    showPage();
-    return;
+  // Only run if we actually have the legacy containers
+  if (document.getElementById("header-container")) {
+    loadComponent("header-container", "/components/header.html");
   }
-
-  const observer = new MutationObserver((mutations, obs) => {
-
-    const emailInput = formContainer.querySelector("input[type='email']");
-
-    if (emailInput && emailInput.placeholder && emailInput.placeholder.length > 0) {
-      showPage();
-      obs.disconnect();
-    }
-
-  });
-
-  observer.observe(formContainer, { childList: true, subtree: true });
-
-  // Fallback por seguridad
-  setTimeout(showPage, 5000);
+  if (document.getElementById("footer-container")) {
+    loadComponent("footer-container", "/components/footer.html");
+  }
+  if (document.getElementById("mobile-menu-container")) {
+    loadComponent("mobile-menu-container", "/components/mobile-menu.html", initMobileMenu);
+  }
 }
 
-
 // =====================================================
-// 🔹 6. INICIALIZACIÓN GLOBAL
+// 4. READING PROGRESS BAR
 // =====================================================
+function initReadingProgressBar() {
+  const articleContent = document.querySelector('.article-content');
+  if (!articleContent) return;
 
-document.addEventListener("DOMContentLoaded", function () {
+  // Create progress bar container and bar
+  const progressContainer = document.createElement('div');
+  progressContainer.className = 'reading-progress-container';
+  
+  const progressBar = document.createElement('div');
+  progressBar.className = 'reading-progress-bar';
+  
+  progressContainer.appendChild(progressBar);
+  document.body.appendChild(progressContainer);
 
-  let componentsLoaded = 0;
+  // Calculate reading progress
+  function updateProgress() {
+    const articleRect = articleContent.getBoundingClientRect();
+    const articleTop = articleRect.top;
+    const articleHeight = articleRect.height;
+    const windowHeight = window.innerHeight;
+    
+    // Calculate how much of the article has been scrolled
+    const scrolled = Math.max(0, -articleTop + windowHeight * 0.15);
+    const totalScrollable = articleHeight - windowHeight * 0.7;
+    const progress = Math.min(100, Math.max(0, (scrolled / totalScrollable) * 100));
+    
+    progressBar.style.width = progress + '%';
+  }
 
-  function checkInitMenu() {
-    componentsLoaded++;
-    if (componentsLoaded === 2) {
-      initMenu();
+  // Initial calculation
+  updateProgress();
+
+  // Update on scroll with throttling
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateProgress();
+        ticking = false;
+      });
+      ticking = true;
     }
-  }
-
-  loadComponent("header-container", "/components/header.html", checkInitMenu);
-  loadComponent("mobile-menu-container", "/components/mobile-menu.html", checkInitMenu);
-
-  loadComponent("footer-container", "/components/footer.html", () => {
-    initContactToggle(); // ← Ahora se ejecuta cuando el footer ya existe
   });
 
-  initPageLoadControl();
-
-});
-
-
-
-
-window.addEventListener("beforeunload", () => {
-  document.body.classList.remove("menu-open");
-});
-
-/*-----------------------modal-------------------*/
-const img = document.getElementById('text-img-responsive');
-  const modal = document.getElementById('infoModal');
-  const modalContent = modal.querySelector('.modal-content');
-
-  function openModal(){
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-  }
-
-  function closeModal(){
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
-  }
-
-  img.addEventListener('click', openModal);
-
-  // Cierra al hacer click por fuera del contenido
-  modal.addEventListener('click', (e) => {
-    if (!modalContent.contains(e.target)) closeModal();
-  });
-
-  // (Opcional) Cerrar con Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-  });
+  // Update on resize
+  window.addEventListener('resize', updateProgress);
+}
