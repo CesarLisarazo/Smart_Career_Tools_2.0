@@ -23,6 +23,9 @@ function initMobileMenu() {
   const overlay = document.getElementById("menu-overlay");
 
   if (!hamburgerButton || !mobileMenu || !overlay) return;
+  
+  if (hamburgerButton.dataset.menuInitialized === "true") return;
+  hamburgerButton.dataset.menuInitialized = "true";
 
   function toggleMenu() {
     const isOpen = mobileMenu.classList.contains("open");
@@ -94,28 +97,34 @@ function initScrollReveal() {
 // 3. LEGACY COMPONENT LOADER (For /blog/ and /descargas/)
 // =====================================================
 function initLegacyComponents() {
-  function loadComponent(id, file, callback) {
+  function loadComponent(id, file) {
     const element = document.getElementById(id);
-    if (!element) return; // Skip if element doesn't exist on this page
+    if (!element) return Promise.resolve(); // Skip if element doesn't exist on this page
 
-    fetch(file)
+    return fetch(file)
       .then(response => response.ok ? response.text() : "")
       .then(data => {
         if (data) element.innerHTML = data;
-        if (callback) callback();
       })
       .catch(console.error);
   }
 
-  // Only run if we actually have the legacy containers
+  const promises = [];
+
   if (document.getElementById("header-container")) {
-    loadComponent("header-container", "/components/header.html");
+    promises.push(loadComponent("header-container", "/components/header.html"));
   }
   if (document.getElementById("footer-container")) {
-    loadComponent("footer-container", "/components/footer.html");
+    promises.push(loadComponent("footer-container", "/components/footer.html"));
   }
   if (document.getElementById("mobile-menu-container")) {
-    loadComponent("mobile-menu-container", "/components/mobile-menu.html", initMobileMenu);
+    promises.push(loadComponent("mobile-menu-container", "/components/mobile-menu.html"));
+  }
+  
+  if (promises.length > 0) {
+    Promise.all(promises).then(() => {
+      initMobileMenu();
+    });
   }
 }
 
