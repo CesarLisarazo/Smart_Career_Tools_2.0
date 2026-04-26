@@ -307,6 +307,73 @@ p {
   gap: 32px;
 }
 
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mockup-pdf {
+  background: white;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  border-radius: 4px;
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mockup-pdf::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: #38bdf8;
+  transform: rotate(45deg);
+  opacity: 0.2;
+}
+
+.mockup-pdf::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 120px;
+  height: 120px;
+  background: var(--secondary-color);
+  transform: rotate(45deg);
+  opacity: 0.1;
+}
+
+.mockup-pdf h3 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  line-height: 1.2;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.mockup-pdf p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
 .card {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
