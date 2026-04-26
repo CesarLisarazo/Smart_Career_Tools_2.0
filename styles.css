@@ -166,7 +166,7 @@ p {
    HERO SECTION
    ===================================================== */
 .hero {
-  padding: 180px 24px 120px;
+  padding: 144px 24px 120px;
   text-align: center;
   background: radial-gradient(circle at top, var(--bg-accent) 0%, var(--bg-primary) 70%);
   position: relative;
@@ -228,6 +228,7 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   padding: 14px 28px;
   border-radius: 8px;
   font-size: 1.05rem;
@@ -246,7 +247,6 @@ p {
 
 .btn-primary:hover {
   background: var(--primary-hover);
-  transform: translateY(-2px);
   box-shadow: 0 10px 15px rgba(37, 99, 235, 0.3);
 }
 
@@ -260,6 +260,18 @@ p {
 .btn-secondary:hover {
   background: var(--bg-secondary);
   border-color: #CBD5E1;
+}
+
+.btn-success {
+  background: #10B981;
+  color: #FFF;
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+}
+
+.btn-success:hover {
+  background: #059669;
+  box-shadow: 0 10px 15px rgba(16, 185, 129, 0.3);
+  color: #FFF;
 }
 
 /* =====================================================
