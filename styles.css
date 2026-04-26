@@ -757,8 +757,8 @@ p {
   display: none;
   background: none;
   border: none;
-  width: 27.5px;
-  height: 23.75px;
+  width: 26.4px;
+  height: 22.8px;
   position: relative;
   cursor: pointer;
   z-index: 1000;
@@ -776,9 +776,9 @@ p {
 
 #hamburger-button .bar {
   width: 100%;
-  height: 3.75px;
+  height: 3.6px;
   background: var(--text-primary);
-  border-radius: 3.75px;
+  border-radius: 3.6px;
 }
 
 #hamburger-button .hamburger {
