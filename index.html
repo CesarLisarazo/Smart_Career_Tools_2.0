@@ -23,21 +23,53 @@
 
   <!-- JSON-LD (GEO / Structured Data) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Smart Career Tools",
-    "url": "https://smartcareertools.com/",
-    "description": "Plataforma líder para optimizar tu currículum contra sistemas ATS.",
-    "publisher": {
-      "@type": "Organization",
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
       "name": "Smart Career Tools",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://smartcareertools.com/img/logo.png"
+      "url": "https://smartcareertools.com/",
+      "description": "Plataforma líder para optimizar tu currículum contra sistemas ATS.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Smart Career Tools",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://smartcareertools.com/img/logo.png"
+        }
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es un sistema ATS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un ATS (Applicant Tracking System) es un software automatizado que las empresas usan para filtrar y clasificar los currículums antes de que un reclutador humano los vea. Descartan cerca del 75% de las aplicaciones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo optimizar mi currículum para un ATS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usa un formato lineal sin columnas complejas, emplea encabezados estándar (como Experiencia o Educación), incluye palabras clave de la oferta de trabajo y evita texto dentro de imágenes o gráficos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es gratis escanear mi CV?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, a través de nuestra integración puedes subir tu documento y obtener tu puntaje ATS exacto en segundos para saber qué fallos necesitas corregir."
+          }
+        }
+      ]
     }
-  }
+  ]
   </script>
 
   <link rel="stylesheet" href="styles.css">
@@ -158,6 +190,57 @@
             <h3>Crea un CV invencible desde cero</h3>
             <p style="margin-bottom: 24px;">¿Necesitas empezar de nuevo? Utiliza las herramientas premium de SheetResume para construir un currículum 100% optimizado para ATS, o impórtalo directamente desde tu perfil de LinkedIn en un solo clic.</p>
             <a href="https://sheetsresume.com/r/smart-career-tools" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" style="padding: 10px 20px; font-size: 0.95rem;">Crear mi CV optimizado</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LATEST ARTICLES (INTERNAL LINKING) -->
+    <section class="section section-alt" style="padding-top: 80px; padding-bottom: 80px;">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 48px;">
+          <h2>Últimos Artículos</h2>
+          <p>Aprende las mejores estrategias para que tu currículum destaque.</p>
+        </div>
+        
+        <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <a href="/blog/como-funcionan-los-ats-en-2026/" class="card reveal-left" style="text-decoration: none; color: inherit; border-top: 4px solid var(--primary-color);">
+            <div class="card-icon" style="background: rgba(37, 99, 235, 0.1); color: var(--primary-color);">💡</div>
+            <h3>Cómo funcionan los ATS en 2026</h3>
+            <p>Descubre los secretos técnicos detrás de los algoritmos que las empresas usan para filtrar perfiles.</p>
+          </a>
+          <a href="/blog/15-errores-que-te-descartan/" class="card reveal-left" style="transition-delay: 0.2s; text-decoration: none; color: inherit; border-top: 4px solid #EF4444;">
+            <div class="card-icon" style="background: rgba(239, 68, 68, 0.1); color: #EF4444;">⚠</div>
+            <h3>15 Errores que te Descartan</h3>
+            <p>Conoce los fallos estructurales que impiden que los sistemas de recursos humanos lean tu currículum.</p>
+          </a>
+        </div>
+        <div style="text-align: center; margin-top: 40px;" class="reveal">
+          <a href="/blog/" class="btn btn-secondary">Ver todos los artículos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section">
+      <div class="container" style="max-width: 800px;">
+        <div class="section-header" style="margin-bottom: 48px;">
+          <h2>Preguntas Frecuentes</h2>
+          <p>Todo lo que necesitas saber sobre los filtros automatizados.</p>
+        </div>
+        
+        <div class="faq-accordion reveal">
+          <div class="faq-item">
+            <h3>¿Qué es un sistema ATS?</h3>
+            <p>Un ATS (Applicant Tracking System) es un software automatizado que las empresas usan para filtrar y clasificar los currículums antes de que un reclutador humano los vea. Descartan cerca del 75% de las aplicaciones.</p>
+          </div>
+          <div class="faq-item">
+            <h3>¿Cómo optimizar mi currículum para un ATS?</h3>
+            <p>Usa un formato lineal sin columnas complejas, emplea encabezados estándar (como Experiencia o Educación), incluye palabras clave de la oferta de trabajo y evita texto dentro de imágenes o gráficos.</p>
+          </div>
+          <div class="faq-item">
+            <h3>¿Es gratis escanear mi CV?</h3>
+            <p>Sí, a través de nuestra integración puedes subir tu documento y obtener tu puntaje ATS exacto en segundos para saber qué fallos necesitas corregir antes de aplicar.</p>
           </div>
         </div>
       </div>
